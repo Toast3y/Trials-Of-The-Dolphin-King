@@ -4,7 +4,7 @@ using Fungus;
 
 public class MainMenuRoom : Room {
 
-
+	public Room Cockpit;
 
 	void OnEnter(){
 		Wait (1);
@@ -13,14 +13,14 @@ public class MainMenuRoom : Room {
 		Choose ("Choose your destiny!");
 	}
 	
-	void Onleave(){
+	void OnLeave(){
 
 
 	}
 
 	void MoveToNewGame(){
 
-
+		MoveToRoom(Cockpit);
 	}
 
 	void ExitGame(){
