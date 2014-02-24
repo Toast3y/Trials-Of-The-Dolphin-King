@@ -39,8 +39,30 @@ public class Player : MonoBehaviour {
 	
 	}
 
-	/*public bool UpdateMissiles(int MissilesDifference){
+	//Checks to see if you have too many missiles.
+	//Returns true if you can buy it, false if you can't.
+	public bool UpdateMissiles(int MissilesDifference){
 		missiles += MissilesDifference;
 
-	}*/
+		if (MissileUpgradeOne) {
+			if (missiles > 10){
+				missiles = 10;
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+		else if (!MissileUpgradeOne){
+			if (missiles > 5){
+				missiles = 5;
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+
+		return false;
+	}
 }
