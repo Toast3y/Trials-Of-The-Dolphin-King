@@ -17,8 +17,18 @@ public class Cockpit : Room {
 	}
 
 	void OnEnter(){
+		Wait (1);
 
-		Wait(5);
+		AddOption ("Make a Flight", DoNothing);
+		AddOption ("Event Interact", DoNothing);
+		AddOption ("Do things!",DoNothing);
+
+		Choose ("");
+
+	}
+
+	void DoNothing(){
 		MoveToRoom (MainMenuRoom);
+
 	}
 }
