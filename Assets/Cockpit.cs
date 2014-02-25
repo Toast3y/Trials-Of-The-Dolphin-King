@@ -4,6 +4,8 @@ using Fungus;
 
 public class Cockpit : Room {
 
+	public Player playerOne;
+
 	public Room MainMenuRoom;
 
 	public bool GameOver;
@@ -25,7 +27,7 @@ public class Cockpit : Room {
 
 
 
-			AddOption ("Make a Flight", DoNothing);
+			AddOption ("Make a Flight", FlightPath);
 			AddOption ("Event Interact", DoNothing);
 			AddOption ("Do things!", DoNothing);
 
@@ -37,5 +39,12 @@ public class Cockpit : Room {
 	void DoNothing(){
 		MoveToRoom (MainMenuRoom);
 
+	}
+
+	void FlightPath(){
+		playerOne.position.x += 1;
+		playerOne.position.y += 1;
+		Say ("Now at position " + playerOne.position.x + ", " + playerOne.position.y);
+		OnEnter();
 	}
 }
