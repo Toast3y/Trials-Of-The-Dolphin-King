@@ -20,24 +20,29 @@ public class Player{
 	// Use this for initialization
 	void Start () {
 		//Initialize player class variables
-		fuel = 10;
-		metal = 0;
-		rock = 0;
-		fish = 0;
-		shields = 50;
-		missiles = 5;
-
-		position.x = 1;
-		position.y = 1;
-
-		//Upgrade flags
-		MissileUpgradeOne = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+	public void initialize(){
+		fuel = 10;
+		metal = 0;
+		rock = 0;
+		fish = 0;
+		shields = 50;
+		missiles = 5;
+		
+		position.x = 1;
+		position.y = 1;
+		
+		//Upgrade flags
+		MissileUpgradeOne = false;
+	}
+
+
 
 	//Checks to see if you have too many missiles.
 	//Returns true if you can buy it, false if you can't.

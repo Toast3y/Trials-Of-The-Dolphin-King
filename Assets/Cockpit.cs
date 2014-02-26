@@ -25,24 +25,27 @@ public class Cockpit : Room {
 	}
 
 	void OnEnter(){
+		if (this.visitCount == 0) {
+			playerOne.initialize();
+		}
+
 		Wait (1);
 		
 		AddOption ("Make a Flight", FlightPath);
-		AddOption ("Event Interact", DoNothing);
+		AddOption ("Event Interact", MoveToBattleRoom);
 		AddOption ("Do things!", ShowResources);
 		
 		Choose ("");
 	}
 
+	public void death (){
+		this.visitCount = 0;
 
-	void DoNothing(){
-		MoveToRoom (BattleScreen);
-
-		playerOne.position.x = 0;
-		playerOne.position.y = 0;
 		MoveToRoom (MainMenuRoom);
+	}
 
-
+	void MoveToBattleRoom(){
+		MoveToRoom (BattleScreen);
 	}
 
 	void ShowResources(){
