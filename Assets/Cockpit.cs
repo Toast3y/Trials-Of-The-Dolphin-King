@@ -8,6 +8,8 @@ public class Cockpit : Room {
 
 	public Room MainMenuRoom;
 
+	public Room BattleScreen;
+
 	public bool gameOver;
 
 	// Use this for initialization
@@ -24,22 +26,23 @@ public class Cockpit : Room {
 
 	void OnEnter(){
 		Wait (1);
-
-
-
-			AddOption ("Make a Flight", FlightPath);
-			AddOption ("Event Interact", DoNothing);
-			AddOption ("Do things!", ShowResources);
-
-			Choose ("");
-
-
+		
+		AddOption ("Make a Flight", FlightPath);
+		AddOption ("Event Interact", DoNothing);
+		AddOption ("Do things!", ShowResources);
+		
+		Choose ("");
 	}
 
+
 	void DoNothing(){
+		MoveToRoom (BattleScreen);
+
 		playerOne.position.x = 0;
 		playerOne.position.y = 0;
 		MoveToRoom (MainMenuRoom);
+
+
 	}
 
 	void ShowResources(){
@@ -52,6 +55,7 @@ public class Cockpit : Room {
 		playerOne.position.x += 1;
 		playerOne.position.y += 1;
 		Say ("Now at position " + playerOne.position.x + ", " + playerOne.position.y);
-		OnEnter();
+
+		OnEnter ();
 	}
 }

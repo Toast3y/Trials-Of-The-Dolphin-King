@@ -1,0 +1,198 @@
+System:
+  OS: Windows 7 Service Pack 1 (6.1.7601) 64bit
+  CPU: Intel(R) Core(TM) i3-2350M CPU @ 2.30GHz, count: 4
+  Physical RAM: 6049 MB
+  Addressable RAM: 2048 MB
+
+D3D9:
+  Renderer: Intel(R) HD Graphics Family
+  VendorID: 8086
+  Driver: igdumdx32.dll 8.15.10.2559
+  VRAM: 880 (via DXGI)
+
+OpenGL:
+  Version: 3.1.0 - Build 8.15.10.2559
+  Vendor: Intel
+  Renderer: Intel(R) HD Graphics Family
+  VRAM: 880 (via DXGI)
+  Extensions: GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_blend_color GL_EXT_abgr GL_EXT_texture3D GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_SGIS_texture_edge_clamp GL_SGIS_generate_mipmap GL_EXT_draw_range_elements GL_SGIS_texture_lod GL_EXT_rescale_normal GL_EXT_packed_pixels GL_EXT_texture_edge_clamp GL_EXT_separate_specular_color GL_ARB_multitexture GL_EXT_texture_env_combine GL_EXT_bgra GL_EXT_blend_func_separate GL_EXT_secondary_color GL_EXT_fog_coord GL_EXT_texture_env_add GL_ARB_texture_cube_map GL_ARB_transpose_matrix GL_ARB_texture_env_add GL_IBM_texture_mirrored_repeat GL_EXT_multi_draw_arrays GL_NV_blend_square GL_ARB_texture_compression GL_3DFX_texture_compression_FXT1 GL_EXT_texture_filter_anisotropic GL_ARB_texture_border_clamp GL_ARB_point_parameters GL_ARB_texture_env_combine GL_ARB_texture_env_dot3 GL_ARB_texture_env_crossbar GL_EXT_texture_compression_s3tc GL_ARB_shadow GL_ARB_window_pos GL_EXT_shadow_funcs GL_EXT_stencil_wrap GL_ARB_vertex_program GL_EXT_texture_rectangle GL_ARB_fragment_program GL_EXT_stencil_two_side GL_ATI_separate_stencil GL_ARB_vertex_buffer_object GL_EXT_texture_lod_bias GL_ARB_occlusion_query GL_ARB_fragment_shader GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_texture_non_power_of_two GL_ARB_vertex_shader GL_NV_texgen_reflection GL_ARB_point_sprite GL_ARB_fragment_program_shadow GL_EXT_blend_equation_separate GL_ARB_depth_texture GL_ARB_texture_rectangle GL_ARB_draw_buffers GL_ARB_color_buffer_float GL_ARB_half_float_pixel GL_ARB_texture_float GL_ARB_pixel_buffer_object GL_EXT_framebuffer_object GL_ARB_draw_instanced GL_ARB_half_float_vertex GL_EXT_draw_buffers2 GL_WIN_swap_hint GL_EXT_texture_sRGB GL_ARB_multisample GL_EXT_packed_float GL_EXT_texture_shared_exponent GL_ARB_texture_rg GL_ARB_texture_compression_rgtc GL_NV_conditional_render GL_EXT_texture_swizzle GL_ARB_sync GL_ARB_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_ARB_depth_buffer_float GL_EXT_transform_feedback GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_ARB_framebuffer_object GL_EXT_texture_array GL_EXT_texture_integer GL_ARB_map_buffer_range GL_EXT_texture_snorm GL_INTEL_performance_queries GL_ARB_copy_buffer GL_ARB_sampler_objects GL_NV_primitive_restart GL_ARB_seamless_cube_map GL_ARB_uniform_buffer_object GL_ARB_depth_clamp GL_ARB_vertex_array_bgra GL_ARB_draw_elements_base_vertex GL_ARB_fragment_coord_conventions GL_EXT_gpu_program_parameters GL_ARB_compatibility GL_ARB_vertex_array_object 
+
+User locale: en-IE
+System locale: en-IE
+
+Running processes:
+sensorsrv.exe (1968)
+    path: C:\Program Files (x86)\ASUS\FaceLogon\sensorsrv.exe
+    company:  ASUSTek Computer Inc.
+    product:  ASUS FaceLogon
+    filedesc: ASUS FaceLogon Application
+    filever:  1.0.14.2
+    prodver:  1.0.14.0
+ATKOSD2.exe (2184)
+    path: C:\Program Files (x86)\ASUS\ATK Package\ATKOSD2\ATKOSD2.exe
+    company:  ASUSTek Computer Inc.
+    product:  ATKOSD2
+    filedesc: ATKOSD2
+    filever:  7.0.15.4
+    prodver:  7.0.15.0
+Dropbox.exe (3340)
+    path: C:\Users\Chris Dunne\AppData\Roaming\Dropbox\bin\Dropbox.exe
+    company:  Dropbox, Inc.
+    product:  Dropbox
+    filedesc: Dropbox
+    filever:  2.4.11.0
+    prodver:  1.0.0.1
+EvernoteClipper.exe (3348)
+    path: C:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe
+    company:  Evernote Corp., 333 W Evelyn Ave. Mountain View, CA 94041
+    product:  Evernote®
+    filedesc: Evernote Clipper
+    filever:  4.5.10.7472
+    prodver:  4.5.10.7472
+DMedia.exe (3588)
+    path: C:\Program Files (x86)\ASUS\ATK Package\ATK Media\DMedia.exe
+    company:  ASUS
+    product:  ATK Media
+    filedesc: ATK Media
+    filever:  2.0.10.1
+    prodver:  2.0.10.0
+HControlUser.exe (3596)
+    path: C:\Program Files (x86)\ASUS\ATK Package\ATK Hotkey\HControlUser.exe
+    company:  ASUS
+    product:  ATK Hotkey
+    filedesc: HControlUser
+    filever:  1.0.50.1
+    prodver:  1.0.50.0
+wcourier.exe (3604)
+    path: C:\Program Files (x86)\ASUS\Wireless Console 3\wcourier.exe
+    company:  ASUS
+    product:  Wireless Console 3
+    filedesc: Wireless Console 3
+    filever:  3.0.25.0
+    prodver:  3.0.25.0
+PWRISOVM.EXE (3612)
+    path: C:\Program Files (x86)\PowerISO\PWRISOVM.EXE
+    company:  Power Software Ltd
+    product:  PowerISO Virtual Drive Manager
+    filedesc: PowerISO Virtual Drive Manager
+    filever:  5.4.0.0
+    prodver:  5.4.0.0
+jusched.exe (3632)
+    path: C:\Program Files (x86)\Common Files\Java\Java Update\jusched.exe
+    company:  Oracle Corporation
+    product:  Java(TM) Platform SE Auto Updater
+    filedesc: Java(TM) Update Scheduler
+    filever:  2.1.9.8
+    prodver:  2.1.9.8
+ACMON.exe (3336)
+    path: C:\Program Files (x86)\ASUS\Splendid\ACMON.exe
+    company:  ASUS
+    product:  ACMON
+    filedesc: ACMON 
+    filever:  1.0.8.0
+    prodver:  1.0.0.0
+AsScrPro.exe (3620)
+    path: C:\Windows\AsScrPro.exe
+    company:  ASUS
+    product:  ASUS Screen Saver Protector
+    filedesc: AsScrPro
+    filever:  1.0.0.9
+    prodver:  1.0.0.9
+ACEngSvr.exe (3576)
+    path: C:\Windows\SysWOW64\ACEngSvr.exe
+    company:  ASUSTeK
+    product:  ACEngSvr Module
+    filedesc: ACEngSvr Module
+    filever:  1.0.0.4
+    prodver:  1.0.0.4
+CLMLSvc.exe (3664)
+    path: C:\Program Files (x86)\CyberLink\Power2Go\CLMLSvc.exe
+    company:  CyberLink
+    product:  CyberLink MediaLibray Service
+    filedesc: CyberLink MediaLibray Service
+    filever:  2.1.3023.0
+    prodver:  2.1.3023.0
+LiveUpdate.exe (1800)
+    path: C:\Program Files (x86)\ASUS\ASUS Live Update\LiveUpdate.exe
+    company:  ASUSTeK Computer Inc.
+    product:  LiveUpdate
+    filedesc: ASUS Live Update
+    filever:  3.1.7.0
+    prodver:  3.1.7.0
+jucheck.exe (2348)
+    path: C:\Program Files (x86)\Common Files\Java\Java Update\jucheck.exe
+    company:  Oracle Corporation
+    product:  Java(TM) Platform SE Auto Updater
+    filedesc: Java(TM) Update Checker
+    filever:  2.1.9.8
+    prodver:  2.1.9.8
+notepad++.exe (5184)
+    path: C:\Program Files (x86)\Notepad++\notepad++.exe
+    company:  Don HO don.h@free.fr
+    product:  Notepad++
+    filedesc: Notepad++ : a free (GNU) source code editor
+    filever:  6.5.2.0
+    prodver:  6.5.2.0
+GitHub.exe (3384)
+    path: C:\Users\Chris Dunne\AppData\Local\Apps\2.0\99ZLXP12.70J\7Z14HLMB.A1N\gith..tion_317444273a93ac29_0001.0002_6db6521c0dc514d4\GitHub.exe
+    company:  GitHub, Inc.
+    product:  GitHub
+    filedesc: GitHub
+    filever:  1.2.11.0
+    prodver:  1.2.11.0
+ssh-agent.exe (5284)
+    path: C:\Users\Chris Dunne\AppData\Local\GitHub\PortableGit_054f2e797ebafd44a30203088cd3d58663c627ef\bin\ssh-agent.exe
+    company:  
+    product:  
+    filedesc: 
+    filever:  0.0.0.0
+    prodver:  0.0.0.0
+firefox.exe (2536)
+    path: C:\Program Files (x86)\Mozilla Firefox\firefox.exe
+    company:  Mozilla Corporation
+    product:  Firefox
+    filedesc: Firefox
+    filever:  27.0.1.5156
+    prodver:  27.0.1.0
+plugin-container.exe (7144)
+    path: C:\Program Files (x86)\Mozilla Firefox\plugin-container.exe
+    company:  Mozilla Corporation
+    product:  Firefox
+    filedesc: Plugin Container for Firefox
+    filever:  27.0.1.5156
+    prodver:  27.0.1.0
+FlashPlayerPlugin_12_0_0_44.exe (4656)
+    path: C:\Windows\SysWOW64\Macromed\Flash\FlashPlayerPlugin_12_0_0_44.exe
+    company:  Adobe Systems, Inc.
+    product:  Shockwave Flash
+    filedesc: Adobe Flash Player 12.0 r0
+    filever:  12.0.0.44
+    prodver:  12.0.0.44
+FlashPlayerPlugin_12_0_0_44.exe (2204)
+    path: C:\Windows\SysWOW64\Macromed\Flash\FlashPlayerPlugin_12_0_0_44.exe
+    company:  Adobe Systems, Inc.
+    product:  Shockwave Flash
+    filedesc: Adobe Flash Player 12.0 r0
+    filever:  12.0.0.44
+    prodver:  12.0.0.44
+Steam.exe (4736)
+    path: D:\Steam\Steam.exe
+    company:  Valve Corporation
+    product:  Steam Client Bootstrapper
+    filedesc: Steam Client Bootstrapper
+    filever:  2.13.4.49
+    prodver:  1.0.0.1
+MonoDevelop.exe (5648)
+    path: D:\Unity\MonoDevelop\bin\MonoDevelop.exe
+    company:  
+    product:  MonoDevelop
+    filedesc: MonoDevelop
+    filever:  2.6.0.0
+    prodver:  2.6.0.0
+UnityBugReporter.exe (4764)
+    path: D:\Unity\Editor\UnityBugReporter.exe
+    company:  Unity Technologies ApS
+    product:  Unity Bug Reporter
+    filedesc: Unity Bug Reporter
+    filever:  4.3.4.31067
+    prodver:  4.3.4.31067
