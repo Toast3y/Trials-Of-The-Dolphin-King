@@ -2,7 +2,7 @@
 using System.Collections;
 using Fungus;
 
-public class Player : MonoBehaviour {
+public class Player{
 
 	//resource handling variables
 	public int fuel;

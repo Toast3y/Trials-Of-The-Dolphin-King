@@ -4,16 +4,16 @@ using Fungus;
 
 public class Cockpit : Room {
 
-	public Player playerOne;
+	public Player playerOne = new Player();
 
 	public Room MainMenuRoom;
 
-	public bool GameOver;
+	public bool gameOver;
 
 	// Use this for initialization
 	void Start () {
 		if (this.visitCount == 0) {
-			GameOver = false;
+			gameOver = false;
 		}
 	}
 
@@ -29,7 +29,7 @@ public class Cockpit : Room {
 
 			AddOption ("Make a Flight", FlightPath);
 			AddOption ("Event Interact", DoNothing);
-			AddOption ("Do things!", DoNothing);
+			AddOption ("Do things!", ShowResources);
 
 			Choose ("");
 
@@ -37,8 +37,15 @@ public class Cockpit : Room {
 	}
 
 	void DoNothing(){
+		playerOne.position.x = 0;
+		playerOne.position.y = 0;
 		MoveToRoom (MainMenuRoom);
+	}
 
+	void ShowResources(){
+		Say ("Fuel: " + playerOne.fuel + "\nMetal: " + playerOne.metal + "\nRock Candy: " + playerOne.rock + "\nFish: " + playerOne.fish + "\nMissiles: " + playerOne.missiles);
+
+		OnEnter ();
 	}
 
 	void FlightPath(){
