@@ -48,7 +48,7 @@ public class Cockpit : Room {
 	void ShowResources(){
 		Say ("Fuel: " + playerOne.fuel + "\nMetal: " + playerOne.metal + "\nRock Candy: " + playerOne.rock + "\nFish: " + playerOne.fish + "\nMissiles: " + playerOne.missiles);
 
-		OnEnter ();
+		MoveToRoom (this);
 	}
 
 	void FlightPath(){
@@ -56,6 +56,6 @@ public class Cockpit : Room {
 		playerOne.position.y += 1;
 		Say ("Now at position " + playerOne.position.x + ", " + playerOne.position.y);
 
-		OnEnter ();
+		MoveToRoom (this);
 	}
 }
