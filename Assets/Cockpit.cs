@@ -10,6 +10,9 @@ public class Cockpit : Room {
 
 	public Room BattleScreen;
 
+	public int xCoordChange;
+	public int yCoordChange;
+
 	public bool gameOver;
 
 	// Use this for initialization
@@ -55,10 +58,21 @@ public class Cockpit : Room {
 	}
 
 	void FlightPath(){
-		playerOne.position.x += 1;
-		playerOne.position.y += 1;
-		Say ("Now at position " + playerOne.position.x + ", " + playerOne.position.y);
+		AddOption ("1", ChangeXCoords (1));
+		AddOption ("2", ChangeXCoords (2));
+		AddOption ("3", ChangeXCoords (3));
+		AddOption ("4", ChangeXCoords (4));
+		AddOption ("5", ChangeXCoords (5));
+		AddOption ("6", ChangeXCoords (6));
+		AddOption ("7", ChangeXCoords (7));
+		AddOption ("8", ChangeXCoords (8));
+
+		Say ("Currently at: (" + playerOne.position.x + " , " + playerOne.position.y + " )");
 
 		MoveToRoom (this);
+	}
+
+	void ChangeXCoords(int x){
+		Say ("Coordinate changed ");
 	}
 }
