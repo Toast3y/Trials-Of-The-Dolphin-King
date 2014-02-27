@@ -10,6 +10,8 @@ public class Cockpit : Room {
 
 	public Room BattleScreen;
 
+	public Room FlightScreen;
+
 	public int xCoordChange;
 	public int yCoordChange;
 
@@ -65,18 +67,7 @@ public class Cockpit : Room {
 
 
 	void FlightPath(){
-		AddOption ("1", DoNothing);
-		AddOption ("2", DoNothing);
-		AddOption ("3", DoNothing);
-		AddOption ("4", DoNothing);
-		AddOption ("5", DoNothing);
-		AddOption ("6", DoNothing);
-		AddOption ("7", DoNothing);
-		AddOption ("8", DoNothing);
-
-		Choose ("Currently at: (" + playerOne.position.x + " , " + playerOne.position.y + " )");
-
-		MoveToRoom (this);
+		MoveToRoom (FlightScreen);
 	}
 
 	//void ChangeXCoords(int x){
