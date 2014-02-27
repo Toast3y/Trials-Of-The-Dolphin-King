@@ -21,7 +21,6 @@ public class FlightScreen : Room {
 	}
 
 	void MoveToCoordinates(){
-
 		MoveToRoom (Cockpit);
 	}
 }
