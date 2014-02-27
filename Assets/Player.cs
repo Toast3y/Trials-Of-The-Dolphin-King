@@ -11,6 +11,7 @@ public class Player{
 	public int fish;
 	public int shields;
 	public int missiles;
+    public int engine;
 	public Vector2 position;
 
 	//bool upgrade flags go here
@@ -34,6 +35,7 @@ public class Player{
 		fish = 0;
 		shields = 50;
 		missiles = 5;
+        engine = 1;
 		
 		position.x = 1;
 		position.y = 1;

@@ -11,6 +11,7 @@ public class BattleScreen : Room
     public int encounter = 1;
     public Enemy fight = new Stomper();
     public Player playerOne = new Player();
+    public bool end = false;
     //playerOne.initialize();
 
     /*public int hp = playerOne.shields;
@@ -23,7 +24,6 @@ public class BattleScreen : Room
         
 		Wait (3);
 		Say ("What?\nYou were ambushed!");
-        //public Enemy fight = new Weakling();
         Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nFuel: " + fight.Engine + "\nMissles: " + fight.Missles );
         Say("Your stats:\nHP: "+ playerOne.shields + "\nMissiles: " + playerOne.missiles);
         AddOption("Start the fight!", Start);
@@ -36,11 +36,14 @@ public class BattleScreen : Room
     {
         //placeholder
         Say("Successfully moved to start");
-        AddOption("Fire the lazers!", lazers);
-        AddOption("Launch a missle!", missles);
-        AddOption("Dolphin cry!", dolphin);
-        AddOption("Run away!", run);
-        Choose("");
+        while (!end)
+        {
+            AddOption("Fire the lazers!", lazers);
+            AddOption("Launch a missle!", missles);
+            AddOption("Dolphin cry!", dolphin);
+            AddOption("Run away!", run);
+            Choose("");
+        }
         MoveToRoom(Cockpit);
 	}
 	
@@ -53,24 +56,24 @@ public class BattleScreen : Room
     void lazers()
     {
         Say("+No limited ammo\n-not 100% accurate\n-lower damage");
-        MoveToRoom(Cockpit);
+        end = true;
     }
 
     void missles()
     {
         Say("+100% accurate\n+more damaging than lazers ever will be\n-limited ammo");
-        MoveToRoom(Cockpit);
+        end = true;
     }
 
     void dolphin()
     {
         Say("+lowers enemy accuracy\n-non-damaging");
-        MoveToRoom(Cockpit);
+        end = true;
     }
 
     void run()
     {
         Say("+You run away\n-You run away");
-        MoveToRoom(Cockpit);
+        end = true;
     }
 }
