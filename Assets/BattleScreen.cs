@@ -36,7 +36,7 @@ public class BattleScreen : Room
     {
         //placeholder
         Say("Successfully moved to start");
-        while (!end)
+        /*while (!end)
         {
             AddOption("Fire the lazers!", lazers);
             AddOption("Launch a missle!", missles);
@@ -44,7 +44,7 @@ public class BattleScreen : Room
             AddOption("Run away!", run);
             Choose("");
         }
-        MoveToRoom(Cockpit);
+        MoveToRoom(Cockpit);*/
 	}
 	
 	// Update is called once per frame
