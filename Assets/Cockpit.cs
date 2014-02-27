@@ -57,22 +57,29 @@ public class Cockpit : Room {
 		MoveToRoom (this);
 	}
 
-	void FlightPath(){
-		AddOption ("1", ChangeXCoords (1));
-		AddOption ("2", ChangeXCoords (2));
-		AddOption ("3", ChangeXCoords (3));
-		AddOption ("4", ChangeXCoords (4));
-		AddOption ("5", ChangeXCoords (5));
-		AddOption ("6", ChangeXCoords (6));
-		AddOption ("7", ChangeXCoords (7));
-		AddOption ("8", ChangeXCoords (8));
 
-		Say ("Currently at: (" + playerOne.position.x + " , " + playerOne.position.y + " )");
+	void DoNothing(){
+		//Method does nothing
+		return;
+	}
+
+
+	void FlightPath(){
+		AddOption ("1", DoNothing);
+		AddOption ("2", DoNothing);
+		AddOption ("3", DoNothing);
+		AddOption ("4", DoNothing);
+		AddOption ("5", DoNothing);
+		AddOption ("6", DoNothing);
+		AddOption ("7", DoNothing);
+		AddOption ("8", DoNothing);
+
+		Choose ("Currently at: (" + playerOne.position.x + " , " + playerOne.position.y + " )");
 
 		MoveToRoom (this);
 	}
 
-	void ChangeXCoords(int x){
-		Say ("Coordinate changed ");
-	}
+	//void ChangeXCoords(int x){
+	//	Say ("Coordinate changed ");
+	//}
 }

@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MainMenuRoom.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Cockpit.cs">
     <Files>
-      <File FileName="Assets\Cockpit.cs" Line="7" Column="1" />
+      <File FileName="Assets\Cockpit.cs" Line="63" Column="10" />
       <File FileName="Assets\Player.cs" Line="19" Column="2" />
       <File FileName="Assets\MainMenuRoom.cs" Line="9" Column="17" />
+      <File FileName="Assets\Scripts\Game.cs" Line="88" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
