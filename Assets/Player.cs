@@ -16,6 +16,8 @@ public class Player{
 
 	//bool upgrade flags go here
 	public bool MissileUpgradeOne;
+    public bool engineUpgradeOne;
+    public bool engineUpgradetwo;
 
 
 	// Use this for initialization
@@ -42,6 +44,9 @@ public class Player{
 		
 		//Upgrade flags
 		MissileUpgradeOne = false;
+
+        engineUpgradeOne = false;
+        engineUpgradetwo = false;
 	}
 
 
@@ -72,4 +77,7 @@ public class Player{
 
 		return false;
 	}
+
+    
+
 }
