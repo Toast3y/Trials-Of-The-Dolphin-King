@@ -3,9 +3,9 @@ using System.Collections;
 using Fungus;
 
 public class MainMenuRoom : Room {
-
-	public Room Cockpit;
-
+	
+	public Cockpit Cockpit;
+	
 	void OnEnter(){
 		Wait (1);
 		AddOption("New Game", MoveToNewGame);
@@ -14,15 +14,15 @@ public class MainMenuRoom : Room {
 	}
 	
 	void OnLeave(){
-
-
+		
+		
 	}
-
+	
 	void MoveToNewGame(){
-
+		
 		MoveToRoom(Cockpit);
 	}
-
+	
 	void ExitGame(){
 		Application.Quit();
 	}

@@ -5,12 +5,12 @@ using Fungus;
 public class BattleScreen : Room 
 {
 
-	public Room Cockpit;
+	public Cockpit Cockpit;
 
     //determine enemy
     //public int encounter = 1;
     public Enemy fight = new Stomper();
-    public Player playerOne = new Player();
+    //public Player playerOne = new Player();
 
     //bools for the end
     public bool end = false;
@@ -38,10 +38,10 @@ public class BattleScreen : Room
         //determine(encounter, fight);
         //fight intro
         Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine + "\nMissles: " + fight.Missles );
-        Say("Your stats:\nShields: " + playerOne.shields + "\nMissiles: " + playerOne.missiles + "\nEngine: " + playerOne.engine);
+        Say("Your stats:\nShields: " + Cockpit.playerOne.shields + "\nMissiles: " + Cockpit.playerOne.missiles + "\nEngine: " + Cockpit.playerOne.engine);
 
         //calculate turn order
-        pspeed = (playerOne.engine * 20) + Random.Range(0, 100);
+        pspeed = (Cockpit.playerOne.engine * 20) + Random.Range(0, 100);
         espeed = (fight.Engine * 20) + Random.Range(0, 100);
 
         if (pspeed > espeed)
@@ -197,7 +197,7 @@ public class BattleScreen : Room
     {
         Say("You attempt to run away!");
         //test to runaway
-        int prun = (playerOne.engine * 20) + Random.Range(0, 100);
+        int prun = (Cockpit.playerOne.engine * 20) + Random.Range(0, 100);
         int erun = (fight.Engine * 20) + Random.Range(0, 100);
         if (prun > erun)
         {
