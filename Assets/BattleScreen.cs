@@ -8,15 +8,21 @@ public class BattleScreen : Room
 	public Room Cockpit;
 
     //determine enemy
-    public int encounter = 1;
+    //public int encounter = 1;
     public Enemy fight = new Stomper();
     public Player playerOne = new Player();
+
+    //bools for the end
     public bool end = false;
+    public bool win = false;
+    public bool lose = false;
+    public bool flee = false;
 
     //Required for calculating speed
     public int pspeed;
     public int espeed;
     public bool fast = false;
+    //public int turn = 0;
 
     /*public int hp = playerOne.shields;
     public int ehp = fight.Health;*/
@@ -28,8 +34,11 @@ public class BattleScreen : Room
         
 		Wait (3);
 		Say ("What?\nYou were ambushed!");
-        Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nFuel: " + fight.Engine + "\nMissles: " + fight.Missles );
-        Say("Your stats:\nHP: " + playerOne.shields + "\nMissiles: " + playerOne.missiles + "\nEngine: " + playerOne.engine);
+        //determine enemy type
+        //determine(encounter, fight);
+        //fight intro
+        Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine + "\nMissles: " + fight.Missles );
+        Say("Your stats:\nShields: " + playerOne.shields + "\nMissiles: " + playerOne.missiles + "\nEngine: " + playerOne.engine);
 
         //calculate turn order
         pspeed = (playerOne.engine * 20) + Random.Range(0, 100);
@@ -39,19 +48,10 @@ public class BattleScreen : Room
         {
             fast = true;
         }
-        AddOption("Start the fight!", Start);
-        Choose("");
-	}
 
-
-	// Use this for initialization
-	void Start ()
-    {
-        //placeholder
-        Say("Successfully moved to start");
 
         //state turn order
-        if(fast)
+        if (fast)
         {
             Say("You outsped them!");
         }
@@ -59,7 +59,50 @@ public class BattleScreen : Room
         {
             Say("They outsped you!");
         }
+        //AddOption("Start the fight!", Start);
+        //Choose("");
 
+        AddOption("Start combat", Update);
+        Choose("");
+	}
+
+
+	// Use this for initialization
+	void Start ()
+    {
+        
+	}
+
+
+
+    //method for determining enemy type
+    /*public Enemy determine(int encounter, Enemy fight)
+    {
+        Say("Choosing enemy");
+        if (encounter == 1)
+        {
+            fight = new Weakling();
+        }
+        if (encounter == 2)
+        {
+            fight = new Stomper();
+        }
+        if (encounter == 3)
+        {
+            fight = new SpaceOrca();
+        }
+        return fight;
+    }*/
+	
+
+
+	// Update is called once per frame
+	void Update ()
+    {
+        //turn = turn + 1;
+        //placeholder
+        //Say("Turn " + turn);
+        end = false;
         if (fast)
         {
             //your turn options
@@ -69,8 +112,12 @@ public class BattleScreen : Room
             AddOption("Run away!", run);
             Choose("");
         }
-        //enemy turn
-        if (!fast)
+        //enemy turn but only if the game isn't over
+        if (!end)
+        {
+            enemyturn();
+        }
+        if (!fast && !end)
         {
             //your turn options
             AddOption("Fire the lazers!", lazers);
@@ -79,59 +126,132 @@ public class BattleScreen : Room
             AddOption("Run away!", run);
             Choose("");
         }
-        MoveToRoom(Cockpit);
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
+        if (end)
+        {
+            AddOption("The fight is over", End);
+            Choose("");
+        }
+        
+        //MoveToRoom(Cockpit);
 	    //this is where turns will be carried out
 	}
 
+
+
+
+
+
     void lazers()
     {
-        int roll = Random.Range(0, 100);
+        int shoot = Random.Range(0, 100);
         Say("You fired the lasers!");
-        if (roll > 80)
+        if (shoot < 80)
         {
             Say("You hit them with your lasers!");
             //calculate damage
+            fight.Health = fight.Health - 5;
+            if (fight.Health == 0)
+            {
+                end = true;
+                win = true;
+            }
+            else
+            {
+                Say("Enemy is at " + fight.Health + "hp!");
+            }
         }
         else
         {
             Say("You missed!");
         }
-        //return
-        MoveToRoom(Cockpit);
     }
 
     void missles()
     {
         Say("You fired the missles!");
         //calculate damage
-        MoveToRoom(Cockpit);
+        fight.Health = fight.Health - 5;
+        if (fight.Health == 0)
+        {
+            end = true;
+            win = true;
+        }
+        else
+        {
+            Say("Enemy is at " + fight.Health + "hp!");
+        }
     }
 
     void dolphin()
     {
         Say("You used the dolphin cry!");
         //calculate accuracy damage
-        MoveToRoom(Cockpit);
+        fight.Acc = fight.Acc - 30;
+        if (fight.Acc == 0)
+        {
+            fight.Acc = 1;
+        }
     }
 
     void run()
     {
         Say("You attempt to run away!");
         //test to runaway
-        MoveToRoom(Cockpit);
+        int prun = (playerOne.engine * 20) + Random.Range(0, 100);
+        int erun = (fight.Engine * 20) + Random.Range(0, 100);
+        if (prun > erun)
+        {
+            Say("You escaped the combat!");
+            end = true;
+            flee = true;
+        }
+        else
+        {
+            Say("You couldn't escape!");
+        }
     }
+
+
+
 
     void End()
     {
-        //if win
+        if (win)
+        {
+            Say("You defeated the " + fight.Name);
+            //reward
+            MoveToRoom(Cockpit);
+        }
 
-        //if loss
+        if (lose)
+        {
+            Say("Your ship was destroyed!");
+            //gameover
+            MoveToRoom(Cockpit);
+        }
 
-        //if run
+        if (flee)
+        {
+            Say("You escape the " + fight.Name);
+            MoveToRoom(Cockpit);
+        }
+    }
+
+
+
+
+    void enemyturn()
+    {
+        int shoot = Random.Range(0, 100);
+        Say("They fired their lasers at your ship!");
+        if (shoot < fight.Acc)
+        {
+            Say("They hit!");
+            //damage
+        }
+        else
+        {
+            Say("they missed!");
+        }
     }
 }
