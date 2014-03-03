@@ -16,6 +16,7 @@ public class Cockpit : Room {
 	public int yCoordChange;
 
 	public bool startFlight;
+	public bool stillFlying;
 	public bool gameOver;
 	
 	// Use this for initialization
@@ -75,7 +76,48 @@ public class Cockpit : Room {
 
 	void InFlight(){
 		startFlight = false;
-		Say ("You are now in flight");
-		MoveToRoom (this);
+		Say ("You are currently in flight. Currently at ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
+
+		if (playerOne.fuel == 0) {
+			Say ("Oh dear, you seem to have run out of fuel. It's only a matter of time before the Vogon Fleet finds you and arrests you for blatant defiance of red tape. Game Over!");
+			death ();
+		}
+
+		//Move coords and check if you're there.
+		if ((playerOne.position.x == xCoordChange) && (playerOne.position.y == yCoordChange)) {
+			stillFlying = false;
+		} else if (playerOne.position.x != xCoordChange) {
+			//checks whether to increment or decrement first
+			if (playerOne.position.x < xCoordChange) {
+				playerOne.position.x++;
+				playerOne.fuel--;
+			} else if (playerOne.position.x > xCoordChange) {
+				playerOne.position.x--;
+				playerOne.fuel--;
+			}
+		}
+		else if (playerOne.position.y != yCoordChange) {
+			//checks whether to increment or decrement first
+			if (playerOne.position.y < yCoordChange) {
+				playerOne.position.y++;
+				playerOne.fuel--;
+			} else if (playerOne.position.y > yCoordChange) {
+				playerOne.position.y--;
+				playerOne.fuel--;
+			}
+		}
+
+		//Add battle chance code here.
+
+
+
+		if (!stillFlying) {
+			Say ("Now at destination. Have a safe, and productive, day.");
+			MoveToRoom (this);
+		}
+		else {
+			startFlight = true;
+			MoveToRoom (this);
+		}
 	}
 }
