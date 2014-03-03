@@ -49,6 +49,9 @@ public class Cockpit : Room {
 	
 	public void death (){
 		this.visitCount = 0;
+		playerOne.initialize ();
+		startFlight = false;
+		stillFlying = false;
 		
 		MoveToRoom (MainMenuRoom);
 	}
@@ -76,17 +79,17 @@ public class Cockpit : Room {
 
 	void InFlight(){
 		startFlight = false;
-		Say ("You are currently in flight. Currently at ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
+		stillFlying = true;
+		//Say ("You are currently in flight. Currently at ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
 
 		if (playerOne.fuel == 0) {
-			Say ("Oh dear, you seem to have run out of fuel. It's only a matter of time before the Vogon Fleet finds you and arrests you for blatant defiance of red tape. Game Over!");
+			Say ("Oh dear, you seem to have run out of fuel!");
+			Say ("It's only a matter of time before the Vogon Fleet finds you and arrests you for blatant defiance of red tape. Game Over!");
 			death ();
 		}
 
 		//Move coords and check if you're there.
-		if ((playerOne.position.x == xCoordChange) && (playerOne.position.y == yCoordChange)) {
-			stillFlying = false;
-		} else if (playerOne.position.x != xCoordChange) {
+		if (playerOne.position.x != xCoordChange) {
 			//checks whether to increment or decrement first
 			if (playerOne.position.x < xCoordChange) {
 				playerOne.position.x++;
@@ -107,6 +110,10 @@ public class Cockpit : Room {
 			}
 		}
 
+		if ((playerOne.position.x == xCoordChange) && (playerOne.position.y == yCoordChange)) {
+			stillFlying = false;
+		} 
+
 		//Add battle chance code here.
 
 
@@ -116,8 +123,7 @@ public class Cockpit : Room {
 			MoveToRoom (this);
 		}
 		else {
-			startFlight = true;
-			MoveToRoom (this);
+			InFlight ();
 		}
 	}
 }

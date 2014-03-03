@@ -15,11 +15,14 @@ public class MainMenuRoom : Room {
 	
 	void OnLeave(){
 		
-		
+
 	}
 	
 	void MoveToNewGame(){
-		
+		Cockpit.playerOne.initialize ();
+		Cockpit.startFlight = false;
+		Cockpit.stillFlying = false;
+
 		MoveToRoom(Cockpit);
 	}
 	
