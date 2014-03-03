@@ -14,14 +14,13 @@ public class Cockpit : Room {
 	
 	public int xCoordChange;
 	public int yCoordChange;
-	
+
+	public bool startFlight;
 	public bool gameOver;
 	
 	// Use this for initialization
 	void Start () {
-		if (this.visitCount == 0) {
-			gameOver = false;
-		}
+
 	}
 	
 	// Update is called once per frame
@@ -32,6 +31,10 @@ public class Cockpit : Room {
 	void OnEnter(){
 		if (this.visitCount == 0) {
 			playerOne.initialize();
+		}
+
+		if (this.startFlight) {
+			InFlight ();
 		}
 		
 		Wait (1);
@@ -69,8 +72,10 @@ public class Cockpit : Room {
 	void FlightPath(){
 		MoveToRoom (FlightScreen);
 	}
-	
-	//void ChangeXCoords(int x){
-	//	Say ("Coordinate changed ");
-	//}
+
+	void InFlight(){
+		startFlight = false;
+		Say ("You are now in flight");
+		MoveToRoom (this);
+	}
 }
