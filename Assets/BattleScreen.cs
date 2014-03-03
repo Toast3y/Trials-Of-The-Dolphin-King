@@ -8,8 +8,8 @@ public class BattleScreen : Room
 	public Cockpit Cockpit;
 
     //determine enemy
-    public int encounter = 1;
-    public Enemy fight = new Enemy();
+    //public int encounter = 1;
+    public Enemy fight = new Stomper();
     //public Player playerOne = new Player();
 
     //bools for the end
@@ -31,14 +31,13 @@ public class BattleScreen : Room
 
 	void OnEnter()
     {
-        //int hp = fight.Health;
-        Enemy fight = new Weakling();
+        
 		Wait (3);
 		Say ("What?\nYou were ambushed!");
         //determine enemy type
-        //determine(encounter);
+        //determine(encounter, fight);
         //fight intro
-        Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine);
+        Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine + "\nMissles: " + fight.Missles );
         Say("Your stats:\nShields: " + Cockpit.playerOne.shields + "\nMissiles: " + Cockpit.playerOne.missiles + "\nEngine: " + Cockpit.playerOne.engine);
 
         //calculate turn order
@@ -77,45 +76,32 @@ public class BattleScreen : Room
 
 
     //method for determining enemy type
-    public void chooseEncounter(int encounter)
-      {
-        switch (encounter)
-          {
-              case 0:
-                  {
-                      Enemy fight = new Weakling();
-                      break;
-                  }
-              case 1:
-                  {
-                      Enemy fight = new Stomper();
-                      break;
-                  }
-              case 2:
-                  {
-                      Enemy fight = new SpaceOrca();
-                      break;
-                  }
-              case 3:
-                  {
-                      break;
-                  }
-              case 4:
-                  {
-                      break;
-                  }
-          }
-
-
-            MoveToScreen(this);
-   }
-
+    /*public Enemy determine(int encounter, Enemy fight)
+    {
+        Say("Choosing enemy");
+        if (encounter == 1)
+        {
+            fight = new Weakling();
+        }
+        if (encounter == 2)
+        {
+            fight = new Stomper();
+        }
+        if (encounter == 3)
+        {
+            fight = new SpaceOrca();
+        }
+        return fight;
+    }*/
 	
 
 
 	// Update is called once per frame
 	void Update ()
     {
+        //turn = turn + 1;
+        //placeholder
+        //Say("Turn " + turn);
         end = false;
         if (fast)
         {
@@ -184,7 +170,7 @@ public class BattleScreen : Room
     {
         Say("You fired the missles!");
         //calculate damage
-        fight.Health = fight.Health - 25;
+        fight.Health = fight.Health - 5;
         if (fight.Health == 0)
         {
             end = true;
@@ -257,12 +243,10 @@ public class BattleScreen : Room
     void enemyturn()
     {
         int shoot = Random.Range(0, 100);
-        Say("They attack!");
+        Say("They fired their lasers at your ship!");
         if (shoot < fight.Acc)
         {
             Say("They hit!");
-            //Cockpit.playerOne.shields = Cockpit.playerOne.shields - fight.Lazerdam;
-            //Say("You are down to " + Cockpit.playerOne.shields + " shields");
             //damage
         }
         else
