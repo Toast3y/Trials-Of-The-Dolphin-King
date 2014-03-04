@@ -105,7 +105,7 @@ public class BattleScreen : Room
         }
 
 
-        MoveToScreen(this);
+        MoveToRoom(this);
     }
 
 	
