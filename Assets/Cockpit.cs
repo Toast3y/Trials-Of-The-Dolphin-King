@@ -37,6 +37,8 @@ public class Cockpit : Room {
 		if (this.startFlight) {
 			InFlight ();
 		}
+
+		BattleScreen.chooseEncounter (0);
 		
 		Wait (1);
 		

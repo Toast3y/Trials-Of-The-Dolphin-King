@@ -9,7 +9,7 @@ public class BattleScreen : Room
 
     //determine enemy
     //public int encounter = 1;
-    public Enemy fight = new Stomper();
+    public Enemy fight = new Enemy();
     //public Player playerOne = new Player();
 
     //bools for the end
@@ -80,28 +80,30 @@ public class BattleScreen : Room
         switch (encounter)
         {
             case 0:
-                {
-                    Enemy fight = new Weakling();
-                    break;
-                }
+				fight.Name = "Weakling";
+				fight.Health = 10;
+				fight.Engine = 1;
+				fight.Lazerdam = 5;
+				fight.Acc = 75;
+                break;
             case 1:
-                {
-                    Enemy fight = new Stomper();
-                    break;
-                }
+				fight.Name = "Stomper";
+				fight.Health = 15;
+				fight.Engine = 2;
+				fight.Lazerdam = 7;
+				fight.Acc = 80;
+                break;
             case 2:
-                {
-                    Enemy fight = new SpaceOrca();
-                    break;
-                }
+				fight.Name = "Space Orca";
+				fight.Health = 100;
+				fight.Engine = 5;
+				fight.Lazerdam = 10;
+				fight.Acc = 60;
+                break;
             case 3:
-                {
-                    break;
-                }
+                break;
             case 4:
-                {
-                    break;
-                }
+                break;
         }
 
 

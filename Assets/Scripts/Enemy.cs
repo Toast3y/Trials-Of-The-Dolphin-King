@@ -3,6 +3,16 @@ using System.Collections;
 using Fungus;
 
 
+	public class Enemy
+	{
+		public string Name { get; set; }
+		public int Health { get; set; }
+		public int Engine { get; set; }
+		public int Lazerdam { get; set; }
+		public int Acc { get; set; }
+		
+	}
+/*
     public class Enemy
     {
         public virtual string Name { get; set; }
@@ -42,3 +52,4 @@ using Fungus;
         public override int Acc { get { return 60; } }
 
     }
+*/
