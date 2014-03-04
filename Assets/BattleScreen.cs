@@ -34,8 +34,14 @@ public class BattleScreen : Room
         
 		Wait (3);
 		Say ("What?\nYou were ambushed!");
+
         //determine enemy type
+<<<<<<< HEAD
         //determine(encounter, fight);
+=======
+        //determine(encounter);
+
+>>>>>>> Testing enemy determination
         //fight intro
         Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine + "\nMissles: " + fight.Missles );
         Say("Your stats:\nShields: " + Cockpit.playerOne.shields + "\nMissiles: " + Cockpit.playerOne.missiles + "\nEngine: " + Cockpit.playerOne.engine);
@@ -59,8 +65,6 @@ public class BattleScreen : Room
         {
             Say("They outsped you!");
         }
-        //AddOption("Start the fight!", Start);
-        //Choose("");
 
         AddOption("Start combat", Update);
         Choose("");
