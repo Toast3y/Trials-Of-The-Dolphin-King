@@ -18,6 +18,11 @@ public class BattleScreen : Room
     public bool lose = false;
     public bool flee = false;
 
+    public bool opt1 = false;
+    public bool opt2 = false;
+    public bool opt3 = false;
+    public bool opt4 = false;
+
     //Required for calculating speed
     public int pspeed;
     public int espeed;
@@ -28,7 +33,7 @@ public class BattleScreen : Room
     public int ehp = fight.Health;*/
 
 
-
+    //start of combat text and speed calculation
 	void OnEnter()
     {
         
@@ -62,7 +67,7 @@ public class BattleScreen : Room
         //AddOption("Start the fight!", Start);
         //Choose("");
 
-        AddOption("Start combat", Update);
+        AddOption("Start combat", decideAttack);
         Choose("");
 	}
 
@@ -74,57 +79,146 @@ public class BattleScreen : Room
 	}
 
 
-
+    //loading in the type of enemy to be encountered
     public void chooseEncounter(int encounter)
     {
         switch (encounter)
         {
             case 0:
-				fight.Name = "Weakling";
+				fight.Name = "Mook Wing";
 				fight.Health = 10;
 				fight.Engine = 1;
-				fight.Lazerdam = 5;
+                fight.Lazerdam = Random.Range(3, 6);
 				fight.Acc = 75;
+                fight.Metal = Random.Range(6, 8);
+                fight.Fish = Random.Range(1, 2);
                 break;
             case 1:
-				fight.Name = "Stomper";
+				fight.Name = "Vogon Battleship";
 				fight.Health = 15;
 				fight.Engine = 2;
-				fight.Lazerdam = 7;
+                fight.Lazerdam = Random.Range(4, 8);
 				fight.Acc = 80;
+                fight.Metal = Random.Range(8, 12);
+                fight.Fish = Random.Range(2, 4);
                 break;
             case 2:
-				fight.Name = "Space Orca";
-				fight.Health = 100;
-				fight.Engine = 5;
-				fight.Lazerdam = 10;
-				fight.Acc = 60;
+				fight.Name = "Rank 3";
+				fight.Health = 20;
+				fight.Engine = 2;
+                fight.Lazerdam = Random.Range(5, 9);
+				fight.Acc = 85;
+                fight.Metal = Random.Range(12, 18);
+                fight.Fish = Random.Range(4, 6);
                 break;
             case 3:
+                fight.Name = "Rank 4";
+				fight.Health = 25;
+				fight.Engine = 3;
+                fight.Lazerdam = Random.Range(6, 12);
+				fight.Acc = 90;
+                fight.Metal = Random.Range(15, 25);
+                fight.Fish = Random.Range(5, 7);
                 break;
             case 4:
+                fight.Name = "Space Orca";
+                fight.Health = 100;
+                fight.Engine = 5;
+                fight.Lazerdam = 10;
+                fight.Acc = 60;
+                fight.Metal = 0;
+                fight.Fish = 90;
                 break;
+            
         }
 
 
         MoveToRoom(this);
     }
 
-	
+    //start of combat, pick an action
+    void decideAttack()
+    {
+        bool opt1 = false;
+        bool opt2 = false;
+        bool opt3 = false;
+        bool opt4 = false;
+        //your turn options
+        AddOption("Fire the lazers!", option1);
+        AddOption("Launch a missle!", option2);
+        AddOption("Dolphin cry!", option3);
+        AddOption("Run away!", option4);
+        Choose("");
+    }
+
+    void option1()
+    {
+        opt1 = true;
+        opt2 = false;
+        opt3 = false;
+        opt4 = false;
+        Turn();
+    }
+
+    void option2()
+    {
+        if (Cockpit.playerOne.missiles < 0)
+        {
+            Say("Sorry sir, we're out of missles");
+            decideAttack();
+        }
+        opt1 = false;
+        opt2 = true;
+        opt3 = false;
+        opt4 = false;
+        Turn();
+    }
+
+    void option3()
+    {
+        opt1 = false;
+        opt2 = false;
+        opt3 = true;
+        opt4 = false;
+        Turn();
+    }
+
+    void option4()
+    {
+        opt1 = false;
+        opt2 = false;
+        opt3 = false;
+        opt4 = true;
+        Turn();
+    }
 
 
-	// Update is called once per frame
-	void Update ()
+	void Turn ()
     {
         end = false;
+        flee = false;
+        win = false;
+        lose = false;
+
         if (fast)
         {
+            if (opt1)
+            {
+                lazers();
+            }
+            if (opt2)
+            {
+                missles();
+            }
+            if (opt3)
+            {
+                dolphin();
+            }
+            if (opt4)
+            {
+                run();
+            }
             //your turn options
-            AddOption("Fire the lazers!", lazers);
-            AddOption("Launch a missle!", missles);
-            AddOption("Dolphin cry!", dolphin);
-            AddOption("Run away!", run);
-            Choose("");
         }
         //enemy turn but only if the game isn't over
         if (!end)
@@ -133,21 +227,33 @@ public class BattleScreen : Room
         }
         if (!fast && !end)
         {
+            if (opt1)
+            {
+                lazers();
+            }
+            if (opt2)
+            {
+                missles();
+            }
+            if (opt3)
+            {
+                dolphin();
+            }
+            if (opt4)
+            {
+                run();
+            }
             //your turn options
-            AddOption("Fire the lazers!", lazers);
-            AddOption("Launch a missle!", missles);
-            AddOption("Dolphin cry!", dolphin);
-            AddOption("Run away!", run);
-            Choose("");
         }
+
         if (end)
         {
-            AddOption("The fight is over", End);
-            Choose("");
+            End();
         }
-        
-        //MoveToRoom(Cockpit);
-	    //this is where turns will be carried out
+        else
+        {
+            decideAttack();
+        }
 	}
 
 
@@ -161,17 +267,17 @@ public class BattleScreen : Room
         Say("You fired the lasers!");
         if (shoot < 80)
         {
-            Say("You hit them with your lasers!");
+            Say("You hit!");
             //calculate damage
             fight.Health = fight.Health - 5;
-            if (fight.Health == 0)
+            if (fight.Health <= 0)
             {
                 end = true;
                 win = true;
             }
             else
             {
-                Say("Enemy is at " + fight.Health + "hp!");
+                Say("Enemy is down to " + fight.Health + " shields");
             }
         }
         else
@@ -182,17 +288,21 @@ public class BattleScreen : Room
 
     void missles()
     {
-        Say("You fired the missles!");
+        Say("You fired a missle!");
+        if (Cockpit.playerOne.missiles > 0)
+        {
+            Cockpit.playerOne.missiles = Cockpit.playerOne.missiles - 1;
+        }
         //calculate damage
         fight.Health = fight.Health - 25;
-        if (fight.Health == 0)
+        if (fight.Health <= 0)
         {
             end = true;
             win = true;
         }
         else
         {
-            Say("Enemy is at " + fight.Health + "hp!");
+            Say("Enemy is down to " + fight.Health + " shields");
         }
     }
 
@@ -201,7 +311,7 @@ public class BattleScreen : Room
         Say("You used the dolphin cry!");
         //calculate accuracy damage
         fight.Acc = fight.Acc - 30;
-        if (fight.Acc == 0)
+        if (fight.Acc <= 0)
         {
             fight.Acc = 1;
         }
@@ -215,7 +325,6 @@ public class BattleScreen : Room
         int erun = (fight.Engine * 20) + Random.Range(0, 100);
         if (prun > erun)
         {
-            Say("You escaped the combat!");
             end = true;
             flee = true;
         }
@@ -232,14 +341,16 @@ public class BattleScreen : Room
     {
         if (win)
         {
-            Say("You defeated the " + fight.Name);
-            //reward
+            Say("You defeated the " + fight.Name + "!\nRewards:\nMetal: " + fight.Metal + "\nFish: " + fight.Fish);
+            Cockpit.playerOne.metal = Cockpit.playerOne.metal + fight.Metal;
+            Cockpit.playerOne.fish = Cockpit.playerOne.fish + fight.Fish;
             MoveToRoom(Cockpit);
         }
 
         if (lose)
         {
-            Say("Your ship was destroyed!");
+            Say("Your ship was destroyed. \nWhat a shame.");
+            Say("While we drift in space in the escape pod for the rest of your life, please enjoy this endless loop of Vogon Poetry.");
             //gameover
             MoveToRoom(Cockpit);
         }
@@ -261,13 +372,13 @@ public class BattleScreen : Room
         if (shoot < fight.Acc)
         {
             Say("They hit!");
-            //Cockpit.playerOne.shields = Cockpit.playerOne.shields - fight.Lazerdam;
-            //Say("You are down to " + Cockpit.playerOne.shields + " shields");
+            Cockpit.playerOne.shields = Cockpit.playerOne.shields - fight.Lazerdam;
+            Say("You are down to " + Cockpit.playerOne.shields + " shields");
             //damage
         }
         else
         {
-            Say("they missed!");
+            Say("They missed!");
         }
     }
 }

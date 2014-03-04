@@ -10,6 +10,8 @@ using Fungus;
 		public int Engine { get; set; }
 		public int Lazerdam { get; set; }
 		public int Acc { get; set; }
+        public int Metal { get; set; }
+        public int Fish { get; set; }
 		
 	}
 /*
