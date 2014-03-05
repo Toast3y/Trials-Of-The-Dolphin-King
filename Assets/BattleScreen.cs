@@ -37,7 +37,7 @@ public class BattleScreen : Room
 	void OnEnter()
     {
         
-		Wait (3);
+		Wait (1);
 		Say ("What?\nYou were ambushed!");
         //determine enemy type
         //determine(encounter, fight);
@@ -162,7 +162,7 @@ public class BattleScreen : Room
 
     void option2()
     {
-        if (Cockpit.playerOne.missiles < 0)
+        if (Cockpit.playerOne.missiles <= 0)
         {
             Say("Sorry sir, we're out of missles");
             decideAttack();
@@ -294,7 +294,7 @@ public class BattleScreen : Room
             Cockpit.playerOne.missiles = Cockpit.playerOne.missiles - 1;
         }
         //calculate damage
-        fight.Health = fight.Health - 25;
+        fight.Health = fight.Health - 15;
         if (fight.Health <= 0)
         {
             end = true;

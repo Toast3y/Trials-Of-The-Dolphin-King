@@ -38,7 +38,9 @@ public class Cockpit : Room {
 			InFlight ();
 		}
 
-		BattleScreen.chooseEncounter (0);
+		if (this.visitCount == 0) {
+			BattleScreen.chooseEncounter (4);
+		}
 		
 		Wait (1);
 		
