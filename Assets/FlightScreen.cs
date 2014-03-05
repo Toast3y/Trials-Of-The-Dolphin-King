@@ -5,22 +5,92 @@ using Fungus;
 public class FlightScreen : Room {
 	
 	public Cockpit Cockpit;
-	public FlightConfirm FlightConfirm;
+	//public FlightConfirm FlightConfirm;
+
+	int fuelCost;
+	int xDifference;
+	int yDifference;
 	
-	void OnEnter(){
-		Wait (1);
+	void OnEnterTwo(){
+		Vector3 clickedPosition = Input.mousePosition;
+
+		//Determine X coords
+		if ((clickedPosition.x >= 310) && (clickedPosition.x < 365)) {
+			Cockpit.xCoordChange = 1;
+		}
+		else if ((clickedPosition.x >= 365) && (clickedPosition.x < 420)) {
+			Cockpit.xCoordChange = 2;
+		}
+		else if ((clickedPosition.x >= 420) && (clickedPosition.x < 475)) {
+			Cockpit.xCoordChange = 3;
+		}
+		else if ((clickedPosition.x >= 475) && (clickedPosition.x < 530)) {
+			Cockpit.xCoordChange = 4;
+		}
+		else if ((clickedPosition.x >= 530) && (clickedPosition.x < 585)) {
+			Cockpit.xCoordChange = 5;
+		}
+		else if ((clickedPosition.x >= 585) && (clickedPosition.x < 640)) {
+			Cockpit.xCoordChange = 6;
+		}
+		else if ((clickedPosition.x >= 640) && (clickedPosition.x < 695)) {
+			Cockpit.xCoordChange = 7;
+		}
+		else if ((clickedPosition.x >= 695) && (clickedPosition.x < 750)) {
+			Cockpit.xCoordChange = 8;
+		}
+
+
+		//Determine Y Coords
+		if ((clickedPosition.y >= 75) && (clickedPosition.y < 130)) {
+			Cockpit.yCoordChange = 1;
+		}
+		else if ((clickedPosition.y >= 130) && (clickedPosition.y < 185)) {
+			Cockpit.yCoordChange = 2;
+		}
+		else if ((clickedPosition.y >= 185) && (clickedPosition.y < 240)) {
+			Cockpit.yCoordChange = 3;
+		}
+		else if ((clickedPosition.y >= 240) && (clickedPosition.y < 295)) {
+			Cockpit.yCoordChange = 4;
+		}
+		else if ((clickedPosition.y >= 295) && (clickedPosition.y < 350)) {
+			Cockpit.yCoordChange = 5;
+		}
+		else if ((clickedPosition.y >= 350) && (clickedPosition.y < 405)) {
+			Cockpit.yCoordChange = 6;
+		}
+		else if ((clickedPosition.y >= 405) && (clickedPosition.y < 460)) {
+			Cockpit.yCoordChange = 7;
+		}
+		else if ((clickedPosition.y >= 460) && (clickedPosition.y < 515)) {
+			Cockpit.yCoordChange = 8;
+		}
+
+		xDifference = (int)Cockpit.playerOne.position.x - Cockpit.xCoordChange;
 		
-		AddOption ("1", MoveXOne);
-		AddOption ("2", MoveXTwo);
-		AddOption ("3", MoveXThree);
-		AddOption ("4", MoveXFour);
-		AddOption ("5", MoveXFive);
-		AddOption ("6", MoveXSix);
-		AddOption ("7", MoveXSeven);
-		AddOption ("8", MoveXEight);
-		AddOption ("Cancel", MoveToCockpit);
+		if (xDifference < 0) {
+			xDifference = -(xDifference);
+		}
 		
-		Choose ("Currently at: (" + Cockpit.playerOne.position.x + " , " + Cockpit.playerOne.position.y + " )\nChoose X Coordinates:");
+		yDifference = (int)Cockpit.playerOne.position.y - Cockpit.yCoordChange;
+		
+		if (yDifference < 0) {
+			yDifference = -(yDifference);
+		}
+		
+		fuelCost = xDifference + yDifference;
+		
+		if (fuelCost == 0) {
+			Say ("Hang on, these are the same coordinates we're at right now! We can't fly to where we already are!");
+			MoveToCockpit ();
+		}
+		else {
+			AddOption ("Yes", AuthorizeFlight);
+			AddOption ("No", MoveToCockpit);
+			
+			Choose ("Moving from ( " + Cockpit.playerOne.position.x + " , " + Cockpit.playerOne.position.y + " ) to ( " + Cockpit.xCoordChange + " , " + Cockpit.yCoordChange + " )\nThis will cost " + fuelCost + " fuel.\nDo you wish to continue?");
+		}
 	}
 	
 	// Use this for initialization
@@ -33,117 +103,12 @@ public class FlightScreen : Room {
 		
 	}
 	
-	//All X Coordinate methods
-	//Unfortunately Fungus doesn't allow many options for choice inside unity, which means our hopes for a map would take at least a month to program
-	//So all of this hacking is the only way Fungus will let us do this operation
-	
-	void MoveXOne(){
-		Cockpit.xCoordChange = 1;
-		CalculateYCoords ();
-	}
-	
-	void MoveXTwo(){
-		Cockpit.xCoordChange = 2;
-		CalculateYCoords ();
-	}
-	
-	void MoveXThree(){
-		Cockpit.xCoordChange = 3;
-		CalculateYCoords ();
-	}
-	
-	void MoveXFour(){
-		Cockpit.xCoordChange = 4;
-		CalculateYCoords ();
-	}
-	
-	void MoveXFive(){
-		Cockpit.xCoordChange = 5;
-		CalculateYCoords ();
-	}
-	
-	void MoveXSix(){
-		Cockpit.xCoordChange = 6;
-		CalculateYCoords ();
-	}
-	
-	void MoveXSeven(){
-		Cockpit.xCoordChange = 7;
-		CalculateYCoords ();
-	}
-	
-	void MoveXEight(){
-		Cockpit.xCoordChange = 8;
-		CalculateYCoords ();
-	}
-	
-	
-	//Calculate the Y Coordinates, similar to the above
-	//The Y coords move you to another room to OK your coordinates afterwards.
-	//The main reason this is done is to allow us to redraw the page dialog box.
-	
-	
-	void CalculateYCoords(){
-		Wait (1);
-		
-		AddOption ("1", MoveYOne);
-		AddOption ("2", MoveYTwo);
-		AddOption ("3", MoveYThree);
-		AddOption ("4", MoveYFour);
-		AddOption ("5", MoveYFive);
-		AddOption ("6", MoveYSix);
-		AddOption ("7", MoveYSeven);
-		AddOption ("8", MoveYEight);
-		AddOption ("Cancel", MoveToCockpit);
-		
-		Choose ("Currently at: (" + Cockpit.playerOne.position.x + " , " + Cockpit.playerOne.position.y + " )\nChoose Y Coordinates:");
-	}
-	
-	void MoveYOne(){
-		Cockpit.yCoordChange = 1;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYTwo(){
-		Cockpit.yCoordChange = 2;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYThree(){
-		Cockpit.yCoordChange = 3;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYFour(){
-		Cockpit.yCoordChange = 4;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYFive(){
-		Cockpit.yCoordChange = 5;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYSix(){
-		Cockpit.yCoordChange = 6;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYSeven(){
-		Cockpit.yCoordChange = 7;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	void MoveYEight(){
-		Cockpit.yCoordChange = 8;
-		MoveToRoom (FlightConfirm);
-	}
-	
-	
-	
 	void MoveToCockpit(){
 		MoveToRoom (Cockpit);
 	}
 	
-	
+	void AuthorizeFlight(){
+		Cockpit.startFlight = true;
+		MoveToCockpit ();
+	}
 }
