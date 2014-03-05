@@ -39,7 +39,7 @@ public class BattleScreen : Room
     {
         
 		Wait (1);
-		Say ("What?\nYou were ambushed!");
+		//Say ("What?\nYou were ambushed!");
         //determine enemy type
         //determine(encounter, fight);
         //fight intro
@@ -95,7 +95,7 @@ public class BattleScreen : Room
                 fight.Fish = Random.Range(1, 2);
                 break;
             case 1:
-				fight.Name = "Vogon Battleship";
+				fight.Name = "Vogon Cruiser";
 				fight.Health = 15;
 				fight.Engine = 2;
                 fight.Lazerdam = Random.Range(4, 8);
@@ -104,7 +104,7 @@ public class BattleScreen : Room
                 fight.Fish = Random.Range(2, 4);
                 break;
             case 2:
-				fight.Name = "Rank 3";
+				fight.Name = "Vogon Battleship";
 				fight.Health = 20;
 				fight.Engine = 2;
                 fight.Lazerdam = Random.Range(5, 9);
@@ -113,7 +113,7 @@ public class BattleScreen : Room
                 fight.Fish = Random.Range(4, 6);
                 break;
             case 3:
-                fight.Name = "Rank 4";
+                fight.Name = "Vogon Capital Ship";
 				fight.Health = 25;
 				fight.Engine = 3;
                 fight.Lazerdam = Random.Range(6, 12);
@@ -345,6 +345,7 @@ public class BattleScreen : Room
             Say("You defeated the " + fight.Name + "!\nRewards:\nMetal: " + fight.Metal + "\nFish: " + fight.Fish);
             Cockpit.playerOne.metal += fight.Metal;
             Cockpit.playerOne.fish += fight.Fish;
+
             MoveToRoom(Cockpit);
         }
 
@@ -359,6 +360,7 @@ public class BattleScreen : Room
         if (flee)
         {
             Say("You escape the " + fight.Name);
+
             MoveToRoom(Cockpit);
         }
     }

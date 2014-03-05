@@ -31,7 +31,7 @@ public class Player{
 	}
 
 	public void initialize(){
-		fuel = 10;
+		fuel = 50;
 		metal = 0;
 		rock = 0;
 		fish = 0;

@@ -15,6 +15,9 @@ public class Cockpit : Room {
 	public int xCoordChange;
 	public int yCoordChange;
 
+	public int battleChance = 5;
+
+
 	public bool startFlight;
 	public bool stillFlying;
 	public bool gameOver;
@@ -85,6 +88,8 @@ public class Cockpit : Room {
 		stillFlying = true;
 		//Say ("You are currently in flight. Currently at ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
 
+		Wait (1);
+
 		if (playerOne.fuel == 0) {
 			Say ("Oh dear, you seem to have run out of fuel!");
 			Say ("It's only a matter of time before the Vogon Fleet finds you and arrests you for blatant defiance of red tape. Game Over!");
@@ -118,8 +123,16 @@ public class Cockpit : Room {
 		} 
 
 		//Add battle chance code here.
+		if (Random.Range(1, 100) < battleChance) {
+			Say ("Sir, a Vogon ship appears to be chasing us!");
 
+			AddOption ("Ready for battle!", ReadyBattle);
+			AddOption ("Lets try to escape!", RunAway);
 
+			Choose ("What will we do sir?");
+		}
+
+		battleChance += 5;
 
 		if (!stillFlying) {
 			Say ("Now at destination. Have a safe, and productive, day.");
@@ -128,5 +141,34 @@ public class Cockpit : Room {
 		else {
 			InFlight ();
 		}
+	}
+
+	void RunAway(){
+
+		if (Random.Range(1, 100) < 25) {
+			Say ("We appear to have lost them sir. Continuing on course.");
+			battleChance += 5;
+			InFlight ();
+		} else {
+			stillFlying = false;
+			Say ("They're too fast! Prepare for battle!");
+			battleChance = 5;
+
+			xCoordChange = (int)playerOne.position.x;
+			yCoordChange = (int)playerOne.position.y;
+
+			BattleScreen.chooseEncounter(Random.Range(0, 1));
+		}
+	}
+
+	void ReadyBattle(){
+		stillFlying = false;
+		Say ("Alright sir, lets show these Vogons the might of the Dolphins!");
+
+		xCoordChange = (int)playerOne.position.x;
+		yCoordChange = (int)playerOne.position.y;
+
+		battleChance = 5;
+		BattleScreen.chooseEncounter(Random.Range(0, 1));
 	}
 }
