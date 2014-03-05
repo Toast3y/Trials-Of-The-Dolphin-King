@@ -6,6 +6,7 @@ public class BattleScreen : Room
 {
 
 	public Cockpit Cockpit;
+	public MainMenuRoom MainMenuRoom;
 
     //determine enemy
     //public int encounter = 1;
@@ -139,10 +140,10 @@ public class BattleScreen : Room
     //start of combat, pick an action
     void decideAttack()
     {
-        bool opt1 = false;
-        bool opt2 = false;
-        bool opt3 = false;
-        bool opt4 = false;
+        opt1 = false;
+        opt2 = false;
+        opt3 = false;
+        opt4 = false;
         //your turn options
         AddOption("Fire the lazers!", option1);
         AddOption("Launch a missle!", option2);
@@ -342,8 +343,8 @@ public class BattleScreen : Room
         if (win)
         {
             Say("You defeated the " + fight.Name + "!\nRewards:\nMetal: " + fight.Metal + "\nFish: " + fight.Fish);
-            Cockpit.playerOne.metal = Cockpit.playerOne.metal + fight.Metal;
-            Cockpit.playerOne.fish = Cockpit.playerOne.fish + fight.Fish;
+            Cockpit.playerOne.metal += fight.Metal;
+            Cockpit.playerOne.fish += fight.Fish;
             MoveToRoom(Cockpit);
         }
 
@@ -352,7 +353,7 @@ public class BattleScreen : Room
             Say("Your ship was destroyed. \nWhat a shame.");
             Say("While we drift in space in the escape pod for the rest of your life, please enjoy this endless loop of Vogon Poetry.");
             //gameover
-            MoveToRoom(Cockpit);
+            Cockpit.death();
         }
 
         if (flee)
@@ -373,6 +374,12 @@ public class BattleScreen : Room
         {
             Say("They hit!");
             Cockpit.playerOne.shields = Cockpit.playerOne.shields - fight.Lazerdam;
+
+			if (Cockpit.playerOne.shields <= 0){
+				lose = true;
+				End ();
+			}
+
             Say("You are down to " + Cockpit.playerOne.shields + " shields");
             //damage
         }

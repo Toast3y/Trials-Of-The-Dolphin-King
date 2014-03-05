@@ -30,17 +30,16 @@ public class Cockpit : Room {
 	}
 	
 	void OnEnter(){
-		if (this.visitCount == 0) {
-			playerOne.initialize();
-		}
 
 		if (this.startFlight) {
 			InFlight ();
 		}
 
-		if (this.visitCount == 0) {
-			BattleScreen.chooseEncounter (4);
-		}
+
+
+		//if (this.visitCount == 0) {
+		//	BattleScreen.chooseEncounter (4);
+		//}
 		
 		Wait (1);
 		
@@ -61,7 +60,7 @@ public class Cockpit : Room {
 	}
 	
 	void MoveToBattleRoom(){
-		MoveToRoom (BattleScreen);
+		BattleScreen.chooseEncounter (4);
 	}
 	
 	void ShowResources(){
