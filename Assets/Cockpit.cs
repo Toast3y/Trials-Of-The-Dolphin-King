@@ -11,6 +11,8 @@ public class Cockpit : Room {
 	public BattleScreen BattleScreen;
 	
 	public FlightScreen FlightScreen;
+
+	//levelOne LevelOne;
 	
 	public int xCoordChange;
 	public int yCoordChange;
