@@ -19,6 +19,11 @@ public class Player{
     public bool engineUpgradeOne;
     public bool engineUpgradetwo;
 
+	//Determines what level you're in
+	public bool levelOne;
+	public bool levelTwo;
+	public bool levelThree;
+
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +36,10 @@ public class Player{
 	}
 
 	public void initialize(){
+		levelOne = true;
+		levelTwo = false;
+		levelThree = false;
+
 		fuel = 50;
 		metal = 0;
 		rock = 0;

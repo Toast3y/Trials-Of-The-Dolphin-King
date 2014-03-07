@@ -22,6 +22,7 @@ public class Cockpit : Room {
 
 	public bool startFlight;
 	public bool stillFlying;
+	public bool EventFlag;
 	public bool gameOver;
 	
 	// Use this for initialization
@@ -38,6 +39,22 @@ public class Cockpit : Room {
 
 		if (this.startFlight) {
 			InFlight ();
+		} else if (this.EventFlag) {
+			if (playerOne.levelOne){
+				EventFlag = false;
+				//LevelOneScripts.CallEvent();
+				Say ("You are at level 1");
+			}
+			else if (playerOne.levelTwo){
+				EventFlag = false;
+				//LevelTwoScripts.CallEvent();
+				Say ("You are at level 2");
+			}
+			else if (playerOne.levelThree){
+				EventFlag = false;
+				//LevelThreeScripts.CallEvent();
+				Say ("You are at level 3");
+			}
 		}
 
 
@@ -46,10 +63,10 @@ public class Cockpit : Room {
 		//	BattleScreen.chooseEncounter (4);
 		//}
 		
-		Wait (1);
+		//Wait (1);
 		
 		AddOption ("Make a Flight", FlightPath);
-		AddOption ("Event Interact", MoveToBattleRoom);
+		AddOption ("Event Interact", TriggerEvent);
 		AddOption ("View Resources", ShowResources);
 		
 		Choose ("Currently at: ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
@@ -60,12 +77,15 @@ public class Cockpit : Room {
 		playerOne.initialize ();
 		startFlight = false;
 		stillFlying = false;
+		EventFlag = false;
+
 		
 		MoveToRoom (MainMenuRoom);
 	}
 	
-	void MoveToBattleRoom(){
-		BattleScreen.chooseEncounter (4);
+	void TriggerEvent(){
+		EventFlag = true;
+		MoveToRoom (this);
 	}
 	
 	void ShowResources(){
@@ -88,6 +108,7 @@ public class Cockpit : Room {
 	void InFlight(){
 		startFlight = false;
 		stillFlying = true;
+		EventFlag = true;
 		//Say ("You are currently in flight. Currently at ( " + playerOne.position.x + " , " + playerOne.position.y + " )");
 
 		Wait (1);
@@ -138,6 +159,7 @@ public class Cockpit : Room {
 
 		if (!stillFlying) {
 			Say ("Now at destination. Have a safe, and productive, day.");
+			EventFlag = true;
 			MoveToRoom (this);
 		}
 		else {
