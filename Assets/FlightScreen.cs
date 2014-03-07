@@ -10,8 +10,13 @@ public class FlightScreen : Room {
 	int fuelCost;
 	int xDifference;
 	int yDifference;
-	
-	void OnEnterTwo(){
+
+	void CheckPos(){
+		Vector3 clickedPosition = Input.mousePosition;
+		Say ("x: " + clickedPosition.x + "\nY: " + clickedPosition.y);
+	}
+
+	void CalculateFlight(){
 		Vector3 clickedPosition = Input.mousePosition;
 
 		//Determine X coords
