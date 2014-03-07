@@ -12,8 +12,14 @@ public class FlightScreen : Room {
 	int yDifference;
 
 	void CheckPos(){
-		Vector3 clickedPosition = Input.mousePosition;
-		Say ("x: " + clickedPosition.x + "\nY: " + clickedPosition.y);
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
+
+		if(hit.collider != null && hit.collider.transform == this.transform){
+			Say ("Raycast hit");
+		}
+		
+
 	}
 
 	void CalculateFlight(){
