@@ -1,14 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FlightScreen.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Events.cs">
     <Files>
-      <File FileName="Assets\FlightScreen.cs" Line="86" Column="66" />
-      <File FileName="Assets\FlightScreen.cs" Line="135" Column="1" />
-      <File FileName="Assets\Cockpit.cs" Line="1" Column="1" />
+      <File FileName="Assets\FlightScreen.cs" Line="7" Column="25" />
+      <File FileName="Assets\FlightScreen.cs" Line="133" Column="1" />
+      <File FileName="Assets\Cockpit.cs" Line="199" Column="1" />
       <File FileName="Assets\BattleScreen.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
       <File FileName="Assets\Map.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Button.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\levelOne.cs" Line="341" Column="1" />
+      <File FileName="Assets\Scripts\Events.cs" Line="299" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

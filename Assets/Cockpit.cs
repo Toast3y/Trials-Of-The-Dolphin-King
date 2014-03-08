@@ -12,7 +12,7 @@ public class Cockpit : Room {
 	
 	public FlightScreen FlightScreen;
 
-	//levelOne LevelOne;
+	levelOne LevelOne = new levelOne();
 	
 	public int xCoordChange;
 	public int yCoordChange;

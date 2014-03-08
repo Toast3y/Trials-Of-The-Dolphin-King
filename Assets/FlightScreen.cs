@@ -5,8 +5,6 @@ using Fungus;
 public class FlightScreen : Room {
 	
 	public Cockpit Cockpit;
-	
-	//public FlightConfirm FlightConfirm;
 
 	int fuelCost;
 	int xDifference;
