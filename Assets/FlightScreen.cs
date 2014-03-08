@@ -35,55 +35,55 @@ public class FlightScreen : Room {
 		Vector3 clickedPosition = Input.mousePosition;
 
 		//Determine X coords
-		if ((clickedPosition.x >= 490) && (clickedPosition.x < 579)) {
+		if ((clickedPosition.x >= 225) && (clickedPosition.x < 297)) {
 			Cockpit.xCoordChange = 1;
 		}
-		else if ((clickedPosition.x >= 579) && (clickedPosition.x < 668)) {
+		else if ((clickedPosition.x >= 297) && (clickedPosition.x < 369)) {
 			Cockpit.xCoordChange = 2;
 		}
-		else if ((clickedPosition.x >= 668) && (clickedPosition.x < 757)) {
+		else if ((clickedPosition.x >= 369) && (clickedPosition.x < 441)) {
 			Cockpit.xCoordChange = 3;
 		}
-		else if ((clickedPosition.x >= 757) && (clickedPosition.x < 846)) {
+		else if ((clickedPosition.x >= 441) && (clickedPosition.x < 513)) {
 			Cockpit.xCoordChange = 4;
 		}
-		else if ((clickedPosition.x >= 846) && (clickedPosition.x < 935)) {
+		else if ((clickedPosition.x >= 513) && (clickedPosition.x < 585)) {
 			Cockpit.xCoordChange = 5;
 		}
-		else if ((clickedPosition.x >= 935) && (clickedPosition.x < 1024)) {
+		else if ((clickedPosition.x >= 585) && (clickedPosition.x < 657)) {
 			Cockpit.xCoordChange = 6;
 		}
-		else if ((clickedPosition.x >= 1024) && (clickedPosition.x < 1113)) {
+		else if ((clickedPosition.x >= 657) && (clickedPosition.x < 729)) {
 			Cockpit.xCoordChange = 7;
 		}
-		else if ((clickedPosition.x >= 1113) && (clickedPosition.x < 1202)) {
+		else if ((clickedPosition.x >= 729) && (clickedPosition.x < 801)) {
 			Cockpit.xCoordChange = 8;
 		}
 
 
 		//Determine Y Coords
-		if ((clickedPosition.y >= 119) && (clickedPosition.y < 208)) {
+		if ((clickedPosition.y >= 100) && (clickedPosition.y < 172)) {
 			Cockpit.yCoordChange = 1;
 		}
-		else if ((clickedPosition.y >= 208) && (clickedPosition.y < 297)) {
+		else if ((clickedPosition.y >= 172) && (clickedPosition.y < 244)) {
 			Cockpit.yCoordChange = 2;
 		}
-		else if ((clickedPosition.y >= 297) && (clickedPosition.y < 386)) {
+		else if ((clickedPosition.y >= 244) && (clickedPosition.y < 316)) {
 			Cockpit.yCoordChange = 3;
 		}
-		else if ((clickedPosition.y >= 386) && (clickedPosition.y < 475)) {
+		else if ((clickedPosition.y >= 316) && (clickedPosition.y < 388)) {
 			Cockpit.yCoordChange = 4;
 		}
-		else if ((clickedPosition.y >= 475) && (clickedPosition.y < 564)) {
+		else if ((clickedPosition.y >= 388) && (clickedPosition.y < 460)) {
 			Cockpit.yCoordChange = 5;
 		}
-		else if ((clickedPosition.y >= 564) && (clickedPosition.y < 653)) {
+		else if ((clickedPosition.y >= 460) && (clickedPosition.y < 532)) {
 			Cockpit.yCoordChange = 6;
 		}
-		else if ((clickedPosition.y >= 653) && (clickedPosition.y < 742)) {
+		else if ((clickedPosition.y >= 532) && (clickedPosition.y < 604)) {
 			Cockpit.yCoordChange = 7;
 		}
-		else if ((clickedPosition.y >= 742) && (clickedPosition.y < 831)) {
+		else if ((clickedPosition.y >= 604) && (clickedPosition.y < 676)) {
 			Cockpit.yCoordChange = 8;
 		}
 
