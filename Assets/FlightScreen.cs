@@ -5,6 +5,7 @@ using Fungus;
 public class FlightScreen : Room {
 	
 	public Cockpit Cockpit;
+	
 	//public FlightConfirm FlightConfirm;
 
 	int fuelCost;
@@ -12,69 +13,77 @@ public class FlightScreen : Room {
 	int yDifference;
 
 	void CheckPos(){
+		/*
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
+		var cam = Camera.main.transform;
+
+		Vector2 TranslatedHit = cam.InverseTransformPoint (hit.point.x, hit.point.y, 0);
 
 		if(hit.collider != null && hit.collider.transform == this.transform){
-			Say ("Raycast hit");
+			Say ("Raycast hit ( " + TranslatedHit.x + " , " + TranslatedHit.y + " )");
 		}
-		
+		*/
+
+		Vector3 clickedPosition = Input.mousePosition;
+		Say ("Clicked position: ( " + clickedPosition.x + " , " + clickedPosition.y + " )");
 
 	}
+
 
 	void CalculateFlight(){
 		Vector3 clickedPosition = Input.mousePosition;
 
 		//Determine X coords
-		if ((clickedPosition.x >= 310) && (clickedPosition.x < 365)) {
+		if ((clickedPosition.x >= 490) && (clickedPosition.x < 579)) {
 			Cockpit.xCoordChange = 1;
 		}
-		else if ((clickedPosition.x >= 365) && (clickedPosition.x < 420)) {
+		else if ((clickedPosition.x >= 579) && (clickedPosition.x < 668)) {
 			Cockpit.xCoordChange = 2;
 		}
-		else if ((clickedPosition.x >= 420) && (clickedPosition.x < 475)) {
+		else if ((clickedPosition.x >= 668) && (clickedPosition.x < 757)) {
 			Cockpit.xCoordChange = 3;
 		}
-		else if ((clickedPosition.x >= 475) && (clickedPosition.x < 530)) {
+		else if ((clickedPosition.x >= 757) && (clickedPosition.x < 846)) {
 			Cockpit.xCoordChange = 4;
 		}
-		else if ((clickedPosition.x >= 530) && (clickedPosition.x < 585)) {
+		else if ((clickedPosition.x >= 846) && (clickedPosition.x < 935)) {
 			Cockpit.xCoordChange = 5;
 		}
-		else if ((clickedPosition.x >= 585) && (clickedPosition.x < 640)) {
+		else if ((clickedPosition.x >= 935) && (clickedPosition.x < 1024)) {
 			Cockpit.xCoordChange = 6;
 		}
-		else if ((clickedPosition.x >= 640) && (clickedPosition.x < 695)) {
+		else if ((clickedPosition.x >= 1024) && (clickedPosition.x < 1113)) {
 			Cockpit.xCoordChange = 7;
 		}
-		else if ((clickedPosition.x >= 695) && (clickedPosition.x < 750)) {
+		else if ((clickedPosition.x >= 1113) && (clickedPosition.x < 1202)) {
 			Cockpit.xCoordChange = 8;
 		}
 
 
 		//Determine Y Coords
-		if ((clickedPosition.y >= 75) && (clickedPosition.y < 130)) {
+		if ((clickedPosition.y >= 119) && (clickedPosition.y < 208)) {
 			Cockpit.yCoordChange = 1;
 		}
-		else if ((clickedPosition.y >= 130) && (clickedPosition.y < 185)) {
+		else if ((clickedPosition.y >= 208) && (clickedPosition.y < 297)) {
 			Cockpit.yCoordChange = 2;
 		}
-		else if ((clickedPosition.y >= 185) && (clickedPosition.y < 240)) {
+		else if ((clickedPosition.y >= 297) && (clickedPosition.y < 386)) {
 			Cockpit.yCoordChange = 3;
 		}
-		else if ((clickedPosition.y >= 240) && (clickedPosition.y < 295)) {
+		else if ((clickedPosition.y >= 386) && (clickedPosition.y < 475)) {
 			Cockpit.yCoordChange = 4;
 		}
-		else if ((clickedPosition.y >= 295) && (clickedPosition.y < 350)) {
+		else if ((clickedPosition.y >= 475) && (clickedPosition.y < 564)) {
 			Cockpit.yCoordChange = 5;
 		}
-		else if ((clickedPosition.y >= 350) && (clickedPosition.y < 405)) {
+		else if ((clickedPosition.y >= 564) && (clickedPosition.y < 653)) {
 			Cockpit.yCoordChange = 6;
 		}
-		else if ((clickedPosition.y >= 405) && (clickedPosition.y < 460)) {
+		else if ((clickedPosition.y >= 653) && (clickedPosition.y < 742)) {
 			Cockpit.yCoordChange = 7;
 		}
-		else if ((clickedPosition.y >= 460) && (clickedPosition.y < 515)) {
+		else if ((clickedPosition.y >= 742) && (clickedPosition.y < 831)) {
 			Cockpit.yCoordChange = 8;
 		}
 
