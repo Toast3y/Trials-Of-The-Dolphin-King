@@ -11,6 +11,8 @@ using Fungus;
 
 public class Events
 {
+	/*
+
 	int TradeTo = 0;
 	int TradeFor = 0;
 
@@ -312,5 +314,5 @@ public class Events
     {
         Cockpit.MoveToRoom(Cockpit);
     }
-    
+    */
 }

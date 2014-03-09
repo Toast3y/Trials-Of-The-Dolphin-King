@@ -4,6 +4,7 @@ using Fungus;
 
 public class levelOne{
 
+	/*
 	public Cockpit Cockpit;
 
 	public Events Events;
@@ -337,4 +338,5 @@ public class levelOne{
 		Events.TradeMenu();
 	}
 
+*/
 }
