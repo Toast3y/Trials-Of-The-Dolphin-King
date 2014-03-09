@@ -250,6 +250,9 @@ public class Events
 		TradeMenu();
     }
 
+
+	//-----------------------------------NONE TRADE EVENTS-----------------------------------
+
     //      ---Mine Rock Candy Satelite---
     public void Rock()
     {
@@ -264,6 +267,8 @@ public class Events
         //I assumed we wanted a random amount of mined candy, will correct if wrong
         int MinedCandy = Random.Range(1, 5);
         Cockpit.playerOne.rock = Cockpit.playerOne.rock + MinedCandy;
+		Cockpit.Say ("After hours of back-breaking labour, your crew has managed to extract " + MinedCandy + " chunks of Rock Candy");
+		Cockpit.MoveToRoom (Cockpit);
     }
 
     //      ---Explore wreck---
@@ -281,12 +286,16 @@ public class Events
         Random RandomMetal = new Random();
         int SalvagedMetal = Random.Range(2, 6);
         Cockpit.playerOne.metal = Cockpit.playerOne.metal + SalvagedMetal;
+		Cockpit.Say ("You managed to find " + SalvagedMetal + " pieces of Scrap Metal");
 
         //Added a little extra just to be nice
         if (Random.Range(1, 10) == 1)
         {
             Cockpit.playerOne.fuel++;
+			Cockpit.Say("You also salvaged one Galactic Standard Unit of generic Starship Fuel");
         }
+
+		Cockpit.MoveToRoom (Cockpit);
     }
 
     //      ---Give Fish to Dolphin---
@@ -302,13 +311,17 @@ public class Events
         if (Cockpit.playerOne.fish > 0)
         {
             Cockpit.playerOne.fish--;
+			Cockpit.Say("You gave 1 fish");
             //Increase Good End chance
         }
 
         else
         {
-            Cockpit.Say("qiqiqiqiqiqiqiqqiqiqiqi\n\"You have raised my hopes and dashed them quite expertly, bravo Humans.\"");
+			Cockpit.Say("Sir, we don't have any fish to trade!");
+            Cockpit.Say("-qiqiqiqiqiqiqiqqiqiqiqi-\n\"You have raised my hopes and dashed them quite expertly, bravo Humans.\"");
         }
+
+		Cockpit.MoveToRoom (Cockpit);
     }
     
     public void Leaving()
