@@ -145,8 +145,8 @@ public class BattleScreen : Room
         opt3 = false;
         opt4 = false;
         //your turn options
-        AddOption("Fire the lazers!", option1);
-        AddOption("Launch a missle!", option2);
+        AddOption("Fire the lasers!", option1);
+        AddOption("Launch a missile!", option2);
         AddOption("Dolphin cry!", option3);
         AddOption("Run away!", option4);
         Choose("");
@@ -165,7 +165,7 @@ public class BattleScreen : Room
     {
         if (Cockpit.playerOne.missiles <= 0)
         {
-            Say("Sorry sir, we're out of missles");
+            Say("Sorry sir, we're out of missiles");
             decideAttack();
         }
         opt1 = false;
@@ -289,7 +289,7 @@ public class BattleScreen : Room
 
     void missles()
     {
-        Say("You fired a missle!");
+        Say("You fired a missile!");
         if (Cockpit.playerOne.missiles > 0)
         {
             Cockpit.playerOne.missiles = Cockpit.playerOne.missiles - 1;

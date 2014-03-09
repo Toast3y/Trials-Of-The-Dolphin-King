@@ -24,10 +24,13 @@ public class Cockpit : Room {
 	public bool stillFlying;
 	public bool EventFlag;
 	public bool gameOver;
+
+	void Start(){
+	}
 	
 	// Use this for initialization
-	public void Start () {
-		LevelOne.Start(this);
+	public void Initialise () {
+		LevelOne.Initialise(this);
 	}
 	
 	// Update is called once per frame
@@ -193,6 +196,6 @@ public class Cockpit : Room {
 		yCoordChange = (int)playerOne.position.y;
 
 		battleChance = 5;
-		BattleScreen.chooseEncounter(Random.Range(0, 1));
+		BattleScreen.chooseEncounter(Random.Range(0, 2));
 	}
 }

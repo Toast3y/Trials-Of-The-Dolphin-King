@@ -4,14 +4,19 @@ using Fungus;
 
 public class levelOne{
 
+
 	public Cockpit cockpit;
 
 	public Events Events = new Events();
 
 	// Use this for initialization
-	public void Start (Cockpit cockpit) {
+	public void Initialise (Cockpit cockpit) {
 		this.cockpit = cockpit;
 		Events.Start (cockpit);
+	}
+
+
+	void Start(){
 	}
 	
 	// Update is called once per frame
@@ -348,5 +353,6 @@ public class levelOne{
 		//Cockpit.Say("But it was fun getting here and that's what matters.");
 		Events.TradeMenu();
 	}
+
 
 }

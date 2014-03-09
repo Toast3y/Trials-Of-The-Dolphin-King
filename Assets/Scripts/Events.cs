@@ -316,5 +316,4 @@ public class Events
 		Cockpit.Say ("Let's go!");
         Cockpit.MoveToRoom(Cockpit);
     }
-    
 }
