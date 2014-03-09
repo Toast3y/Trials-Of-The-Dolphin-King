@@ -193,6 +193,6 @@ public class Cockpit : Room {
 		yCoordChange = (int)playerOne.position.y;
 
 		battleChance = 5;
-		BattleScreen.chooseEncounter(Random.Range(0, 1));
+		BattleScreen.chooseEncounter(Random.Range(0, 2));
 	}
 }
