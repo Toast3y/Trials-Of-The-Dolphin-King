@@ -315,6 +315,7 @@ public class levelOne{
 	//Create event methods
 	//Derelict spaceship wreck
 	public void Wreck () {
+		cockpit.Say ("After warping in, you quickly spot a shipwreck on your sensors.");
 		cockpit.Say ("It looks abandoned...");
 		Events.DerelictWreck();
 	}

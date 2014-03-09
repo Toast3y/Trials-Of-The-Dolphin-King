@@ -1,13 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MainMenuRoom.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\levelOne.cs">
     <Files>
-      <File FileName="Assets\Scripts\Events.cs" Line="323" Column="1" />
-      <File FileName="Assets\Scripts\levelOne.cs" Line="359" Column="1" />
-      <File FileName="Assets\Cockpit.cs" Line="199" Column="1" />
-      <File FileName="Assets\MainMenuRoom.cs" Line="25" Column="17" />
-      <File FileName="..\Documents\College\OOP\Trials of the Dolphin King\Trials-Of-The-Dolphin-King-master\Assets\BattleScreen.cs" Line="1" Column="1" />
-      <File FileName="Assets\Player.cs" Line="44" Column="11" />
+      <File FileName="Assets\Scripts\levelOne.cs" Line="358" Column="1" />
+      <File FileName="Assets\Scripts\Events.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
