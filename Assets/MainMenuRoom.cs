@@ -22,7 +22,7 @@ public class MainMenuRoom : Room {
 		Cockpit.playerOne.initialize ();
 		Cockpit.startFlight = false;
 		Cockpit.stillFlying = false;
-		Cockpit.Start();
+		Cockpit.Initialise();
 		MoveToRoom(Cockpit);
 	}
 	
