@@ -4,57 +4,63 @@ using Fungus;
 
 public class levelOne{
 
-	public Cockpit Cockpit;
+	public Cockpit cockpit;
 
-	public Events Events;
+	public Events Events = new Events();
 
 	// Use this for initialization
-	void Start () {
-		
+	public void Start (Cockpit cockpit) {
+		this.cockpit = cockpit;
+		Events.Start (cockpit);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-	
-	public void CallEvent(){
-		switch (Cockpit.playerOne.position.x) {
+
+	public void CallEvent(int XVal, int YVal){
+		//int XVal = (int)Cockpit.playerOne.position.x;
+
+		switch (XVal) {
 		case 1:
-			XOneEvents();
+			XOneEvents(YVal);
 			break;
 		case 2:
-			XTwoEvents();
+			XTwoEvents(YVal);
 			break;
 		case 3:
-			XThreeEvents();
+			XThreeEvents(YVal);
 			break;
 		case 4:
-			XFourEvents();
+			XFourEvents(YVal);
 			break;
 		case 5:
-			XFiveEvents();
+			XFiveEvents(YVal);
 			break;
 		case 6:
-			XSixEvents();
+			XSixEvents(YVal);
 			break;
 		case 7:
-			XSevenEvents();
+			XSevenEvents(YVal);
 			break;
 		case 8:
-			XEightEvents();
+			XEightEvents(YVal);
 			break;
 		}
 	}
 	
 	
-	void XOneEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	
+	void XOneEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
-			Empty();
+			Planet ();
+			//Empty();
 			break;
 		case 2:
-			Cockpit.Say("Welcome to Brequinda");
+			//cockpit.Say("Welcome to Brequinda");
 			Planet();
 			break;
 		case 3:
@@ -64,27 +70,28 @@ public class levelOne{
 			Dolphin();
 			break;
 		case 5:
-			Cockpit.Say("Welcome to Ciceronicus 12");
+			//Cockpit.Say("Welcome to Ciceronicus 12");
 			Planet();
 			break;
 		case 6:
-			Cockpit.Say("Welcome to Esflovian");
+			//Cockpit.Say("Welcome to Esflovian");
 			Planet();
 			break;
 		case 7:
 			Wreck();
 			break;
 		case 8:
-			Cockpit.Say("Welcome to Golgafrincham");
+			//Cockpit.Say("Welcome to Golgafrincham");
 			Planet();
 			break;
 		}
 	}
 	
-	void XTwoEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XTwoEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
-			Cockpit.Say("Welcome to Happi-Werld III");
+			//Cockpit.Say("Welcome to Happi-Werld III");
 			Planet();
 			break;
 		case 2:
@@ -100,7 +107,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 6:
-			Cockpit.Say("Welcome to Jaglan Beta");
+			//Cockpit.Say("Welcome to Jaglan Beta");
 			Planet();
 			break;
 		case 7:
@@ -112,8 +119,9 @@ public class levelOne{
 		}
 	}
 	
-	void XThreeEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XThreeEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
 			Wreck();
 			break;
@@ -124,7 +132,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 4:
-			Cockpit.Say("Welcome to Kakrafoon");
+			//Cockpit.Say("Welcome to Kakrafoon");
 			Planet();
 			break;
 		case 5:
@@ -137,16 +145,17 @@ public class levelOne{
 			Empty();
 			break;
 		case 8:
-			Cockpit.Say("Welcome to Lamuella");
+			//Cockpit.Say("Welcome to Lamuella");
 			Planet();
 			break;
 		}
 	}
 	
-	void XFourEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XFourEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
-			Cockpit.Say("Welcome to Santraginus V");
+			//Cockpit.Say("Welcome to Santraginus V");
 			Planet();
 			break;
 		case 2:
@@ -159,7 +168,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 5:
-			Cockpit.Say("Welcome to Stegbartle Major");
+			//Cockpit.Say("Welcome to Stegbartle Major");
 			Planet();
 			break;
 		case 6:
@@ -174,8 +183,9 @@ public class levelOne{
 		}
 	}
 	
-	void XFiveEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XFiveEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
 			Empty();
 			break;
@@ -186,7 +196,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 4:
-			Cockpit.Say("Welcome to Viltvodle VI");
+			//Cockpit.Say("Welcome to Viltvodle VI");
 			Planet();
 			break;
 		case 5:
@@ -204,8 +214,9 @@ public class levelOne{
 		}
 	}
 	
-	void XSixEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XSixEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
 			Empty();
 			break;
@@ -213,7 +224,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 3:
-			Cockpit.Say("Welcome to Kria");
+			//Cockpit.Say("Welcome to Kria");
 			Planet();
 			break;
 		case 4:
@@ -234,8 +245,9 @@ public class levelOne{
 		}
 	}
 	
-	void XSevenEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XSevenEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
 			Wreck();
 			break;
@@ -246,7 +258,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 4:
-			Cockpit.Say("Welcome to Han Wavel");
+			//Cockpit.Say("Welcome to Han Wavel");
 			Planet();
 			break;
 		case 5:
@@ -264,13 +276,14 @@ public class levelOne{
 		}
 	}
 	
-	void XEightEvents(){
-		switch (Cockpit.playerOne.position.y) {
+	void XEightEvents(int YVal){
+		//int YVal = (int)Cockpit.playerOne.position.y;
+		switch (YVal) {
 		case 1:
 			Empty();
 			break;
 		case 2:
-			Cockpit.Say("Welcome to Damogran");
+			//Cockpit.Say("Welcome to Damogran");
 			Planet();
 			break;
 		case 3:
@@ -286,7 +299,7 @@ public class levelOne{
 			Empty();
 			break;
 		case 7:
-			Cockpit.Say("Welcome to Broop Kidron 13");
+			//Cockpit.Say("Welcome to Broop Kidron 13");
 			Planet();
 			break;
 		case 8:
@@ -298,24 +311,23 @@ public class levelOne{
 	//Create event methods
 	//Derelict spaceship wreck
 	public void Wreck () {
-		Cockpit.Say ("It looks abandoned...");
+		//Cockpit.Say ("It looks abandoned...");
 		Events.DerelictWreck();
 	}
 	
 	//Nothing/Dead Space
 	public void Empty () {
-		Cockpit.Say("You gaze ahead in abject horror as you realise that " +
-		    "hovering menacingly in front of your ship is...");
-		Cockpit.Wait(3);
-		Cockpit.Say("Absolutely nothing.");
-		Cockpit.MoveToRoom(Cockpit);
+		//Cockpit.Say("You gaze ahead in abject horror as you realise that " +
+		//    "hovering menacingly in front of your ship is...");
+		//Cockpit.Wait(3);
+		//Cockpit.Say("Absolutely nothing.");
 	}
 	
 	//Rock candy
 	public void RockCandy () {
-		Cockpit.Say("Cap'n, there's a huge chunk o' rock candy floating a'fore us!");
-		Cockpit.Say("...");
-		Cockpit.Say("Why are you talking like that?");
+		//Cockpit.Say("Cap'n, there's a huge chunk o' rock candy floating a'fore us!");
+		//Cockpit.Say("...");
+		//Cockpit.Say("Why are you talking like that?");
 		
 		//Enter mining screen
 		Events.Rock();
@@ -323,8 +335,8 @@ public class levelOne{
 	
 	//Run into a dolphin
 	public void Dolphin () {
-		Cockpit.Say("A wild dolphin appears!");
-		Cockpit.Say("*Dolphin noises*");
+		//Cockpit.Say("A wild dolphin appears!");
+		//Cockpit.Say("*Dolphin noises*");
 		
 		//Enter Fish tribute screen
 		Events.FishTribute();
@@ -332,8 +344,8 @@ public class levelOne{
 	
 	//Find a planet
 	public void Planet () {
-		Cockpit.Say("You've discovered a new planet! Sort of, anyway, it appears to be populated.");
-		Cockpit.Say("But it was fun getting here and that's what matters.");
+		//Cockpit.Say("You've discovered a new planet! Sort of, anyway, it appears to be populated.");
+		//Cockpit.Say("But it was fun getting here and that's what matters.");
 		Events.TradeMenu();
 	}
 

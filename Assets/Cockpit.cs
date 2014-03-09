@@ -26,8 +26,8 @@ public class Cockpit : Room {
 	public bool gameOver;
 	
 	// Use this for initialization
-	void Start () {
-
+	public void Start () {
+		LevelOne.Start(this);
 	}
 	
 	// Update is called once per frame
@@ -42,17 +42,17 @@ public class Cockpit : Room {
 		} else if (this.EventFlag) {
 			if (playerOne.levelOne){
 				EventFlag = false;
-				//LevelOneScripts.CallEvent();
+				LevelOne.CallEvent((int)playerOne.position.x, (int)playerOne.position.y);
 				Say ("You are at level 1");
 			}
 			else if (playerOne.levelTwo){
 				EventFlag = false;
-				//LevelTwoScripts.CallEvent();
+				//LevelTwo.CallEvent();
 				Say ("You are at level 2");
 			}
 			else if (playerOne.levelThree){
 				EventFlag = false;
-				//LevelThreeScripts.CallEvent();
+				//LevelThree.CallEvent();
 				Say ("You are at level 3");
 			}
 		}
