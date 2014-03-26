@@ -322,9 +322,7 @@ public class levelOne{
 	
 	//Nothing/Dead Space
 	public void Empty () {
-		cockpit.Say("You gaze ahead in abject horror as you realise that hovering menacingly in front of your ship is...");
-		cockpit.Wait(3);
-		cockpit.Say("Absolutely nothing.");
+		cockpit.Say("You gaze ahead in abject horror as you realise that hovering menacingly in front of your ship is..." + "Absolutely nothing.");
 	}
 	
 	//Rock candy

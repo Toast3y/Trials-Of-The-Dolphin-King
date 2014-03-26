@@ -1,7 +1,4 @@
 ﻿/*
-  ---TO DO---   
- * Error Checking to make sure player cannot trade more that they have      DONE
- * Modify resource values       DONE
  
  */
 
@@ -49,7 +46,7 @@ public class Events
         Cockpit.AddOption("Fish", Opt1);
         Cockpit.AddOption("Metal", Opt2);
         Cockpit.AddOption("Rock Candy", Opt3);
-        Cockpit.Choose("Whaddya wanna trade?");
+        Cockpit.Choose("What'll you give me?" + "\n\nFish: " + Cockpit.playerOne.fish + "\nMetal: " + Cockpit.playerOne.metal + "\nRock Candy: " + Cockpit.playerOne.rock);
     }
 
     void Opt1()
@@ -77,7 +74,7 @@ public class Events
         Cockpit.AddOption("Metal", Option2);
         Cockpit.AddOption("Rock Candy", Option3);
         Cockpit.AddOption("Fuel", Option4);
-        Cockpit.Choose("Whaddya wanna trade for?");
+        Cockpit.Choose("Whaddya wanna buy with them?");
     }
 
     void Option1()
@@ -134,6 +131,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.fish = Cockpit.playerOne.fish - Amount;
 				Cockpit.playerOne.metal = Cockpit.playerOne.metal + (Amount * FishToMetal);
+				Cockpit.Say("Traded " + Amount + " fish for" + (Amount * FishToMetal) + " metal.");
 			}
 		}
 		else if (TradeTo == 1 && TradeFor == 3)
@@ -144,6 +142,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.fish = Cockpit.playerOne.fish - Amount;
 				Cockpit.playerOne.rock = Cockpit.playerOne.rock + (Amount * FishToRock);
+				Cockpit.Say("Traded " + Amount + " fish for" + (Amount * FishToRock) + " rock candy.");
 			}
 		}
 		else if (TradeTo == 2 && TradeFor == 1)
@@ -154,6 +153,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.metal = Cockpit.playerOne.metal - Amount;
 				Cockpit.playerOne.fish = Cockpit.playerOne.fish + (Amount * MetalToFish);
+				Cockpit.Say("Traded " + Amount + " metal for" + (Amount * MetalToFish) + " fish.");
 			}
 		}
 		else if (TradeTo == 2 && TradeFor == 3)
@@ -164,6 +164,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.metal = Cockpit.playerOne.metal - Amount;
 				Cockpit.playerOne.rock = Cockpit.playerOne.rock + (Amount * MetalToRock);
+				Cockpit.Say("Traded " + Amount + " metal for" + (Amount * MetalToRock) + " rock candy.");
 			}
 		} 
 		else if (TradeTo == 3 && TradeFor == 1)
@@ -174,6 +175,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.rock = Cockpit.playerOne.rock - Amount;
 				Cockpit.playerOne.fish = Cockpit.playerOne.fish + (Amount * RockToFish);
+				Cockpit.Say("Traded " + Amount + " rock candy for" + (Amount * RockToFish) + " fish.");
 			}
 		} 
 		else if (TradeTo == 3 && TradeFor == 2) 
@@ -184,6 +186,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.rock = Cockpit.playerOne.rock - Amount;
 				Cockpit.playerOne.metal = Cockpit.playerOne.metal + (Amount * RockToMetal);
+				Cockpit.Say("Traded " + Amount + " rock candy for" + (Amount * RockToMetal) + " metal.");
 			}
 		} 
 		else if (TradeTo == 1 && TradeFor == 4) 
@@ -194,6 +197,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.fish = Cockpit.playerOne.fish - Amount;
 				Cockpit.playerOne.fuel = Cockpit.playerOne.fuel + (Amount * FishToFuel);
+				Cockpit.Say("Traded " + Amount + " fish for" + (Amount * FishToFuel) + " fuel.");
 			}
 		}
 		else if (TradeTo == 2 && TradeFor == 4) 
@@ -204,6 +208,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.rock = Cockpit.playerOne.rock - Amount;
 				Cockpit.playerOne.fuel = Cockpit.playerOne.fuel + (Amount * RockToFuel);
+				Cockpit.Say("Traded " + Amount + " rock candy for" + (Amount * RockToFuel) + " fuel.");
 			}
 		}
 		else if (TradeTo == 3 && TradeFor == 4) 
@@ -214,6 +219,7 @@ public class Events
 				OK = true;
 				Cockpit.playerOne.metal = Cockpit.playerOne.metal - Amount;
 				Cockpit.playerOne.fuel = Cockpit.playerOne.fuel + (Amount * MetalToFuel);
+				Cockpit.Say("Traded " + Amount + " metal for" + (Amount * MetalToFuel) + " fuel.");
 			}
 		}
 
@@ -326,7 +332,6 @@ public class Events
     
     public void Leaving()
     {
-		Cockpit.Say ("Let's go!");
         Cockpit.MoveToRoom(Cockpit);
     }
 }
