@@ -6,6 +6,7 @@ public class Map : MonoBehaviour {
 
 	public FlightScreen FlightScreen;
 
+	//Legacy code for raycasthit testing
 	void OnMouseDown(){
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit2D hit = Physics2D.GetRayIntersection (ray, Mathf.Infinity);
