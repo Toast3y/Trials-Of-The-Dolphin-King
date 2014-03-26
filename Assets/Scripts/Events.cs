@@ -36,6 +36,7 @@ public class Events
 
     public void TradeMenu()
     {
+		//Choose what to do
         Cockpit.AddOption("Buy Goods", Bartering1);
         Cockpit.AddOption("Leave", Leaving);
         Cockpit.Choose("Welcome! Here to trade?");
@@ -43,12 +44,14 @@ public class Events
 
     public void Bartering1()
     {
+		//Choose what to sell for supplies
         Cockpit.AddOption("Fish", Opt1);
         Cockpit.AddOption("Metal", Opt2);
         Cockpit.AddOption("Rock Candy", Opt3);
         Cockpit.Choose("What'll you give me?" + "\n\nFish: " + Cockpit.playerOne.fish + "\nMetal: " + Cockpit.playerOne.metal + "\nRock Candy: " + Cockpit.playerOne.rock);
     }
 
+	//Sets variables to determine what is being traded then moves to next stage
     void Opt1()
     {
         TradeTo = 1;
@@ -70,6 +73,7 @@ public class Events
 
     public void Bartering2()
     {
+		//Choose what to buy
         Cockpit.AddOption("Fish", Option1);
         Cockpit.AddOption("Metal", Option2);
         Cockpit.AddOption("Rock Candy", Option3);
@@ -77,6 +81,7 @@ public class Events
         Cockpit.Choose("Whaddya wanna buy with them?");
     }
 
+	//Sets variables to determine what is being traded for
     void Option1()
     {
         TradeFor = 1;
@@ -108,18 +113,24 @@ public class Events
 		//Metal = 2
 		//Rock = 3
 		//Fuel = 4
+
+		//Compares values to make sure you are trading different resources
 		if (TradeTo == TradeFor) 
 		{
 			Cockpit.Say ("Those are the same thing. You.. you do know how this works, right?");
 			TradeMenu ();
 		} 
 
+		//If they're different, do stuff
 		else 
 		{
+			//Determine number of things to trade
 			TradeUnitNum ();
 		}
 	}
 
+	//Do the actual editing of values
+	//Now with 20% more feedback!
 	public bool DoTrade(int Amount)
 	{
 		bool OK = false;
@@ -295,7 +306,7 @@ public class Events
 		Cockpit.Say ("You managed to find " + SalvagedMetal + " pieces of Scrap Metal");
 
         //Added a little extra just to be nice
-        if (Random.Range(1, 10) == 1)
+        if (Random.Range(1, 10) >= 4)
         {
             Cockpit.playerOne.fuel++;
 			Cockpit.Say("You also salvaged one Galactic Standard Unit of generic Starship Fuel");
