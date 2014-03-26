@@ -10,6 +10,8 @@ public class FlightScreen : Room {
 	int xDifference;
 	int yDifference;
 
+
+	//Testing for raycasthit processing of flight confirm screen
 	void CheckPos(){
 		/*
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -28,7 +30,7 @@ public class FlightScreen : Room {
 
 	}
 
-
+	//Checks the position clicked by the mouse on the grid, then asks if the coordinates are right.
 	void CalculateFlight(){
 		Vector3 clickedPosition = Input.mousePosition;
 
@@ -85,6 +87,7 @@ public class FlightScreen : Room {
 			Cockpit.yCoordChange = 8;
 		}
 
+		//Calculates the fuel cost by difference of X and Y coordinates as a positive integer
 		xDifference = (int)Cockpit.playerOne.position.x - Cockpit.xCoordChange;
 		
 		if (xDifference < 0) {
@@ -98,12 +101,14 @@ public class FlightScreen : Room {
 		}
 		
 		fuelCost = xDifference + yDifference;
-		
+
+		//If fuelcost is 0, you clicked in the coordinates you're at now
 		if (fuelCost == 0) {
 			Say ("Hang on, these are the same coordinates we're at right now! We can't fly to where we already are!");
 			MoveToCockpit ();
 		}
 		else {
+			//Asks you if you chose the right coordinates
 			AddOption ("Yes", AuthorizeFlight);
 			AddOption ("No", MoveToCockpit);
 			
@@ -120,11 +125,13 @@ public class FlightScreen : Room {
 	void Update () {
 		
 	}
-	
+
+	//Moves you back to cockpit
 	void MoveToCockpit(){
 		MoveToRoom (Cockpit);
 	}
-	
+
+	//Initializes flight and moves to cockpit
 	void AuthorizeFlight(){
 		Cockpit.startFlight = true;
 		MoveToCockpit ();
