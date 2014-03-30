@@ -18,6 +18,7 @@ public class BattleScreen : Room
     public bool win = false;
     public bool lose = false;
     public bool flee = false;
+    public bool cry = false;
 
     public bool opt1 = false;
     public bool opt2 = false;
@@ -182,6 +183,11 @@ public class BattleScreen : Room
 
     void option3()
     {
+        if (cry)
+        {
+            Say("we already did that. We already scrambled their systems, remember? It was like a few seconds ago.");
+            decideAttack();
+        }
         opt1 = false;
         opt2 = false;
         opt3 = true;
@@ -315,7 +321,9 @@ public class BattleScreen : Room
     void dolphin()
     {
         Say("You used the dolphin cry!");
-        Say("DEV NOTE: for technical reasons, the dolphin cry is currently on holiday.");
+        //Say("DEV NOTE: for technical reasons, the dolphin cry is currently on holiday.");
+        cry = true;
+        Say("Their systems have been scrambled!");
         //calculate accuracy damage
         /*fight.Acc = fight.Acc - 30;
         if (fight.Acc <= 0)
@@ -421,6 +429,10 @@ public class BattleScreen : Room
     void Attack0()
     {
         int Acc = 75;
+        if (cry)
+        {
+            Acc = Acc - 30;
+        }
         int shoot = Random.Range(0, 100);
         int damage = Random.Range(3, 6);
         Say("They fire a hail of lazers!");
@@ -452,6 +464,10 @@ public class BattleScreen : Room
         if (choose > 70)
         {
             int Acc = 90;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(6, 9);
             Say("They focus their fire!");
@@ -478,6 +494,10 @@ public class BattleScreen : Room
         if(choose <= 70)
         {
             int Acc = 80;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(4, 8);
             Say("They fire a barrage of lazers!");
@@ -529,6 +549,10 @@ public class BattleScreen : Room
         if (choose < 95 && choose > 60)
         {
             int Acc = 80;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(6, 10);
             Say("They fire their main autocannons!");
@@ -555,6 +579,10 @@ public class BattleScreen : Room
         if (choose <= 60)
         {
             int Acc = 85;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(5, 9);
             Say("They fire a storm of lazers at us!");
@@ -605,6 +633,10 @@ public class BattleScreen : Room
         if (choose < 90 && choose > 75)
         {
             int Acc = 80;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(8, 12);
             Say("They fired a barrage of torpedos at us!");
@@ -628,6 +660,10 @@ public class BattleScreen : Room
         if (choose < 75 && choose > 45)
         {
             int Acc = 90;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(6, 10);
             Say("They fired all of their lazers at us!");
@@ -655,6 +691,10 @@ public class BattleScreen : Room
         if (choose < 45 && choose > 35)
         {
             int Acc = 85;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             Say("The fired their tractor beam at us!");
             if (shoot < Acc)
@@ -710,6 +750,10 @@ public class BattleScreen : Room
         if (choose < 95 && choose > 50)
         {
             int Acc = 70;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(6, 10);
             Say("The lets out a mighty roar!");
@@ -742,6 +786,10 @@ public class BattleScreen : Room
         if (choose < 50 && choose > 20)
         {
             int Acc = 95;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(10, 16);
             Say("The Orca fires a lazer from it's mouth!");
@@ -768,6 +816,10 @@ public class BattleScreen : Room
         if (choose <= 20)
         {
             int Acc = 50;
+            if (cry)
+            {
+                Acc = Acc - 30;
+            }
             int shoot = Random.Range(0, 100);
             int damage = Random.Range(12, 18);
             Say("The Orca swings it's tail at the ship!");
