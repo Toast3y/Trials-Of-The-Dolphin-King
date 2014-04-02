@@ -15,6 +15,11 @@ public class Cockpit : Room {
 	//Stores all the events for the first zone
 	levelOne LevelOne = new levelOne();
 
+
+	//Randomized level flags
+	public bool randomLevels;
+	LevelRandom levelRandom = new LevelRandom ();
+
 	//Holds coordinated position changes for fuel costs
 	public int xCoordChange;
 	public int yCoordChange;
@@ -34,7 +39,11 @@ public class Cockpit : Room {
 	
 	// Use this for initialization
 	public void Initialise () {
-		LevelOne.Initialise(this);
+		if (randomLevels == false) {
+			LevelOne.Initialise (this);
+		} else if (randomLevels == true) {
+			levelRandom.Initialise(this);
+		}
 	}
 	
 	// Update is called once per frame
@@ -53,20 +62,26 @@ public class Cockpit : Room {
 			InFlight ();
 		} else if (this.EventFlag) {
 			//Otherwise, if entering a coordinate, calls an event based on position and level.
-			if (playerOne.levelOne){
+
+			if (randomLevels){
 				EventFlag = false;
-				LevelOne.CallEvent((int)playerOne.position.x, (int)playerOne.position.y);
-				//Say ("You are at level 1");
-			}
-			else if (playerOne.levelTwo){
-				EventFlag = false;
-				//LevelTwo.CallEvent();
-				//Say ("You are at level 2");
-			}
-			else if (playerOne.levelThree){
-				EventFlag = false;
-				//LevelThree.CallEvent();
-				//Say ("You are at level 3");
+				levelRandom.checkEvent((int)playerOne.position.x, (int)playerOne.position.y);
+			}else if (!randomLevels){
+				if (playerOne.levelOne){
+					EventFlag = false;
+					LevelOne.CallEvent((int)playerOne.position.x, (int)playerOne.position.y);
+					//Say ("You are at level 1");
+				}
+				else if (playerOne.levelTwo){
+					EventFlag = false;
+					//LevelTwo.CallEvent();
+					//Say ("You are at level 2");
+				}
+				else if (playerOne.levelThree){
+					EventFlag = false;
+					//LevelThree.CallEvent();
+					//Say ("You are at level 3");
+				}
 			}
 		}
 		
