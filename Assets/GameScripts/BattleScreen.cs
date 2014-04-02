@@ -48,8 +48,8 @@ public class BattleScreen : Room
         Say("Your stats:\nShields: " + Cockpit.playerOne.shields + "\nMissiles: " + Cockpit.playerOne.missiles + "\nEngine: " + Cockpit.playerOne.engine);
 
         //calculate turn order
-        pspeed = (Cockpit.playerOne.engine * 20) + Random.Range(0, 100);
-        espeed = (fight.Engine * 20) + Random.Range(0, 100);
+        pspeed = (Cockpit.playerOne.engine * 20) + Random.Range(0, 101);
+        espeed = (fight.Engine * 20) + Random.Range(0, 101);
 
         if (pspeed > espeed)
         {
@@ -92,8 +92,8 @@ public class BattleScreen : Room
                 fight.Engine = 1;
                 /*fight.Lazerdam = Random.Range(3, 6);
 				fight.Acc = 75;*/
-                fight.Metal = Random.Range(6, 8);
-                fight.Fish = Random.Range(1, 2);
+                fight.Metal = Random.Range(6, 9);
+                fight.Fish = Random.Range(1, 3);
                 fight.Attack = 0;
                 break;
             case 1:
@@ -102,8 +102,8 @@ public class BattleScreen : Room
                 fight.Engine = 2;
                 /*fight.Lazerdam = Random.Range(4, 8);
 				fight.Acc = 80;*/
-                fight.Metal = Random.Range(8, 12);
-                fight.Fish = Random.Range(2, 4);
+                fight.Metal = Random.Range(8, 13);
+                fight.Fish = Random.Range(2, 5);
                 fight.Attack = 1;
                 break;
             case 2:
@@ -112,8 +112,8 @@ public class BattleScreen : Room
                 fight.Engine = 2;
                 /*fight.Lazerdam = Random.Range(5, 9);
 				fight.Acc = 85;*/
-                fight.Metal = Random.Range(12, 18);
-                fight.Fish = Random.Range(4, 6);
+                fight.Metal = Random.Range(12, 19);
+                fight.Fish = Random.Range(4, 7);
                 fight.Attack = 2;
                 break;
             case 3:
@@ -122,8 +122,8 @@ public class BattleScreen : Room
                 fight.Engine = 3;
                 /*fight.Lazerdam = Random.Range(6, 12);
 				fight.Acc = 90;*/
-                fight.Metal = Random.Range(15, 25);
-                fight.Fish = Random.Range(5, 7);
+                fight.Metal = Random.Range(15, 26);
+                fight.Fish = Random.Range(5, 8);
                 fight.Attack = 3;
                 break;
             case 4:
@@ -275,7 +275,7 @@ public class BattleScreen : Room
 
     void lazers()
     {
-        int shoot = Random.Range(0, 100);
+        int shoot = Random.Range(0, 101);
         Say("You fired the lasers!");
         if (shoot < 80)
         {
@@ -336,8 +336,8 @@ public class BattleScreen : Room
     {
         Say("You attempt to run away!");
         //test to runaway
-        int prun = (Cockpit.playerOne.engine * 20) + Random.Range(0, 100);
-        int erun = (fight.Engine * 20) + Random.Range(0, 100);
+        int prun = (Cockpit.playerOne.engine * 20) + Random.Range(0, 101);
+        int erun = (fight.Engine * 20) + Random.Range(0, 101);
         if (prun > erun)
         {
             end = true;
@@ -433,8 +433,8 @@ public class BattleScreen : Room
         {
             Acc = Acc - 30;
         }
-        int shoot = Random.Range(0, 100);
-        int damage = Random.Range(3, 6);
+        int shoot = Random.Range(0, 101);
+        int damage = Random.Range(3, 7);
         Say("They fire a hail of lazers!");
         if (shoot < Acc)
         {
@@ -458,7 +458,7 @@ public class BattleScreen : Room
     //Cruiser
     void Attack1()
     {
-        int choose = Random.Range(0, 100);
+        int choose = Random.Range(0, 101);
 
         //possible Attack A
         if (choose > 70)
@@ -468,8 +468,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(6, 9);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(6, 10);
             Say("They focus their fire!");
             if (shoot < Acc)
             {
@@ -498,8 +498,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(4, 8);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(4, 9);
             Say("They fire a barrage of lazers!");
             if (shoot < Acc)
             {
@@ -526,7 +526,7 @@ public class BattleScreen : Room
     //Battleship
     void Attack2()
     {
-        int choose = Random.Range(0, 100);
+        int choose = Random.Range(0, 101);
         //possible attack A
         if (choose > 95)
         {
@@ -553,8 +553,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(6, 10);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(6, 11);
             Say("They fire their main autocannons!");
             if (shoot < Acc)
             {
@@ -583,8 +583,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(5, 9);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(5, 10);
             Say("They fire a storm of lazers at us!");
             if (shoot < Acc)
             {
@@ -610,7 +610,7 @@ public class BattleScreen : Room
     //Vogon Capital
     void Attack3()
     {
-        int choose = Random.Range(0, 100);
+        int choose = Random.Range(0, 101);
         //possible Attack A
         if (choose > 90)
         {
@@ -637,8 +637,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(8, 12);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(8, 13);
             Say("They fired a barrage of torpedos at us!");
             if (shoot < Acc)
             {
@@ -664,8 +664,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(6, 10);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(6, 11);
             Say("They fired all of their lazers at us!");
             if (shoot < Acc)
             {
@@ -695,7 +695,7 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
+            int shoot = Random.Range(0, 101);
             Say("The fired their tractor beam at us!");
             if (shoot < Acc)
             {
@@ -711,7 +711,7 @@ public class BattleScreen : Room
         //possible Attack E
         if (choose <= 35)
         {
-            int repair = Random.Range(5, 10);
+            int repair = Random.Range(5, 11);
             Say("They dispatched repair teams!");
             fight.Health = fight.Health + repair;
             Say("They repaired themselves back up to " + fight.Health + " Shields!");
@@ -722,13 +722,13 @@ public class BattleScreen : Room
     //spaceOrca
     void Attack4()
     {
-        int choose = Random.Range(0, 100);
+        int choose = Random.Range(0, 101);
         //possoble attack A
         if (choose > 95)
         {
             int damage = 9999;
-            int bite = Random.Range(0, 100);
-            int escape = (Random.Range(0, 100) + (Cockpit.playerOne.engine * 20));
+            int bite = Random.Range(0, 101);
+            int escape = (Random.Range(0, 101) + (Cockpit.playerOne.engine * 20));
             Say("The Orca is attempting to bite the ship!");
             if (bite > escape)
             {
@@ -754,8 +754,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(6, 10);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(6, 11);
             Say("The lets out a mighty roar!");
             if (shoot < Acc)
             {
@@ -790,8 +790,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(10, 16);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(10, 17);
             Say("The Orca fires a lazer from it's mouth!");
             if (shoot < Acc)
             {
@@ -809,7 +809,7 @@ public class BattleScreen : Room
             }
             else
             {
-                Say("They missed!");
+                Say("It missed!");
             }
         }
         //possible attack D
@@ -820,8 +820,8 @@ public class BattleScreen : Room
             {
                 Acc = Acc - 30;
             }
-            int shoot = Random.Range(0, 100);
-            int damage = Random.Range(12, 18);
+            int shoot = Random.Range(0, 101);
+            int damage = Random.Range(12, 19);
             Say("The Orca swings it's tail at the ship!");
             if (shoot < Acc)
             {
@@ -839,7 +839,7 @@ public class BattleScreen : Room
             }
             else
             {
-                Say("They missed!");
+                Say("It missed!");
             }
         }
     }
