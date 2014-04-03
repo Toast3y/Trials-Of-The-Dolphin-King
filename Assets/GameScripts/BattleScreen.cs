@@ -354,6 +354,7 @@ public class BattleScreen : Room
 
     void End()
     {
+        cry = false;
         if (win)
         {
             Say("You defeated the " + fight.Name + "!\nRewards:\nMetal: " + fight.Metal + "\nFish: " + fight.Fish);
