@@ -27,9 +27,18 @@ public class LevelRandom{
 		random = Random.Range (1, 101);
 
 		//Assigns a random event to a square
-		if (random <= 60) {
-			//Empty Space
+		if (random <= 15) {
+			//Empty Space One
 			EventChart [x,y] = 1;
+		} else if ((random > 15) && (random <= 30)){
+			//Empty Space Two
+			EventChart[x,y] = 7;
+		} else if ((random > 30) && (random <= 45)){
+			//Empty Space Three
+			EventChart[x,y] = 8;
+		} else if ((random > 45) && (random <= 60)){
+			//Empty Space Four
+			EventChart[x,y] = 9;
 		} else if ((random > 60) && (random <= 70)) {
 			//Derelict Wreck
 			EventChart [x,y] = 2;
@@ -99,6 +108,15 @@ public class LevelRandom{
 			case 6:
 				Ending();
 				break;
+			case 7:
+				EmptyTwo();
+				break;
+			case 8:
+				EmptyThree();
+				break;
+			case 9:
+				EmptyFour();
+				break;
 		}
 	
 	}
@@ -118,7 +136,22 @@ public class LevelRandom{
 	
 	//Nothing/Dead Space
 	public void Empty () {
-		cockpit.Say("You gaze ahead in abject horror as you realise that hovering menacingly in front of your ship is..." + "Absolutely nothing.");
+		cockpit.Say("You gaze ahead in abject horror as you realise that hovering menacingly in front of your ship is... " + "Absolutely nothing.");
+	}
+
+	public void EmptyTwo(){
+		cockpit.Say("As you warp in, you believe you see a blurry shape hurtling past the cockpit. It looked suspiciously like a flower pot.");
+		cockpit.Say("Other then a rogue flower pot, this area of space is completely empty.");
+	}
+
+	public void EmptyThree(){
+		cockpit.Say ("As you hit the warp button, your mind runs wild with the possibilities of what could be in this new location.");
+		cockpit.Say ("Unfortunately, your hopes are dashed as it appears completely barren other than some traces of space dust.");
+	}
+
+	public void EmptyFour(){
+		cockpit.Say ("As you warp in, your eyes are greeted by possibly the most horrific sight you've ever seen.");
+		cockpit.Say ("You've found a local tourist site. Unfortunately, like most tourist sites, there's very little to do here. Best to keep moving!");
 	}
 	
 	//Rock candy
