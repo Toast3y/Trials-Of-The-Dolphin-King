@@ -17,15 +17,15 @@ public class Events
 
 	//Ints used to determine exchange rates for each resource by multiplying proposed resource trade
 	//number by exchange ints
-	int FishToMetal = 1;
-	int FishToRock = 1;
-	int FishToFuel = 1;
-	int MetalToFish = 1;
-	int MetalToRock = 1;
-	int MetalToFuel = 1;
-	int RockToFish = 1;
-	int RockToMetal = 1;
-	int RockToFuel = 1;
+	public int FishToMetal = 1;
+	public int FishToRock = 1;
+	public int FishToFuel = 1;
+	public int MetalToFish = 1;
+	public int MetalToRock = 1;
+	public int MetalToFuel = 1;
+	public int RockToFish = 1;
+	public int RockToMetal = 1;
+	public int RockToFuel = 1;
 
 	public Cockpit Cockpit;
 
@@ -48,7 +48,7 @@ public class Events
         Cockpit.AddOption("Fish", Opt1);
         Cockpit.AddOption("Metal", Opt2);
         Cockpit.AddOption("Rock Candy", Opt3);
-        Cockpit.Choose("What'll you give me?" + "\n\nFish: " + Cockpit.playerOne.fish + "\nMetal: " + Cockpit.playerOne.metal + "\nRock Candy: " + Cockpit.playerOne.rock);
+        Cockpit.Choose("What'll you give me?" + "\nFish: " + Cockpit.playerOne.fish + "\nMetal: " + Cockpit.playerOne.metal + "\nRock Candy: " + Cockpit.playerOne.rock);
     }
 
 	//Sets variables to determine what is being traded then moves to next stage
@@ -282,7 +282,7 @@ public class Events
     public void MineRock()
     {
         //I assumed we wanted a random amount of mined candy, will correct if wrong
-        int MinedCandy = Random.Range(1, 5);
+        int MinedCandy = Random.Range(1, 6);
         Cockpit.playerOne.rock = Cockpit.playerOne.rock + MinedCandy;
 		Cockpit.Say ("After hours of back-breaking labour, your crew has managed to extract " + MinedCandy + " chunks of Rock Candy");
 		Cockpit.MoveToRoom (Cockpit);
@@ -301,12 +301,12 @@ public class Events
     {
         //Wasn't sure what else to do with derelict ships so I assumed that it's the source of found metal
         Random RandomMetal = new Random();
-        int SalvagedMetal = Random.Range(2, 6);
+        int SalvagedMetal = Random.Range(2, 7);
         Cockpit.playerOne.metal = Cockpit.playerOne.metal + SalvagedMetal;
 		Cockpit.Say ("You managed to find " + SalvagedMetal + " pieces of Scrap Metal");
 
         //Added a little extra just to be nice
-        if (Random.Range(1, 10) >= 4)
+        if (Random.Range(1, 11) >= 4)
         {
             Cockpit.playerOne.fuel++;
 			Cockpit.Say("You also salvaged one Galactic Standard Unit of generic Starship Fuel");

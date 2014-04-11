@@ -5,6 +5,7 @@ using Fungus;
 public class levelOne{
 
 
+
 	public Cockpit cockpit;
 
 	public Events Events = new Events();
@@ -65,7 +66,6 @@ public class levelOne{
 			break;
 		case 2:
 			cockpit.Say("Welcome to Brequinda");
-			Planet();
 			break;
 		case 3:
 			Empty();
