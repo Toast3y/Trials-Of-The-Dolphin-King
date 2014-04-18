@@ -11,8 +11,8 @@ public class MainMenuRoom : Room {
 	void OnEnter(){
 		//Main menu screen
 		Wait (1);
-		AddOption("New Game", MoveToNewGame);
-		AddOption ("Random Map Mode", MoveToRandomGame);
+		//AddOption("New Game", MoveToNewGame);
+		AddOption("Random Map Mode", MoveToRandomGame);
 		AddOption("Exit", ExitGame);
 		Choose ("Choose your destiny!");
 	}
