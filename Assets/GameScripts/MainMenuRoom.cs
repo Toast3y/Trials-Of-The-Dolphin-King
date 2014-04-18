@@ -11,7 +11,8 @@ public class MainMenuRoom : Room {
 	void OnEnter(){
 		//Main menu screen
 		Wait (1);
-		AddOption("New Game", MoveToNewGame);
+		//AddOption("New Game", MoveToNewGame);
+		AddOption("Random Map Mode", MoveToRandomGame);
 		AddOption("Exit", ExitGame);
 		Choose ("Choose your destiny!");
 	}
@@ -30,6 +31,13 @@ public class MainMenuRoom : Room {
 		MoveToRoom(Cockpit);
 	}
 
+	void MoveToRandomGame(){
+		Cockpit.randomLevels = true;
+		Cockpit.playerOne.initialize ();
+		Cockpit.startFlight = false;
+		Cockpit.stillFlying = false;
+		Cockpit.Initialise();
+	}
 
 	//Quits the game
 	void ExitGame(){
