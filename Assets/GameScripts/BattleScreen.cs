@@ -9,9 +9,7 @@ public class BattleScreen : Room
     public MainMenuRoom MainMenuRoom;
 
     //determine enemy
-    //public int encounter = 1;
     public Enemy fight = new Enemy();
-    //public Player playerOne = new Player();
 
     //bools for the end
     public bool end = false;
@@ -29,10 +27,7 @@ public class BattleScreen : Room
     public int pspeed;
     public int espeed;
     public bool fast = false;
-    //public int turn = 0;
-
-    /*public int hp = playerOne.shields;
-    public int ehp = fight.Health;*/
+    
 
 
     //start of combat text and speed calculation
@@ -40,9 +35,7 @@ public class BattleScreen : Room
     {
 
         Wait(1);
-        //Say ("What?\nYou were ambushed!");
         //determine enemy type
-        //determine(encounter, fight);
         //fight intro
         Say("You encountered a " + fight.Name + "\nShields: " + fight.Health + "\nEngine: " + fight.Engine);
         Say("Your stats:\nShields: " + Cockpit.playerOne.shields + "\nMissiles: " + Cockpit.playerOne.missiles + "\nEngine: " + Cockpit.playerOne.engine);
@@ -66,8 +59,6 @@ public class BattleScreen : Room
         {
             Say("They outsped you!");
         }
-        //AddOption("Start the fight!", Start);
-        //Choose("");
 
         AddOption("Start combat", decideAttack);
         Choose("");
@@ -90,8 +81,6 @@ public class BattleScreen : Room
                 fight.Name = "Mook Wing";
                 fight.Health = 10;
                 fight.Engine = 1;
-                /*fight.Lazerdam = Random.Range(3, 6);
-				fight.Acc = 75;*/
                 fight.Metal = Random.Range(6, 9);
                 fight.Fish = Random.Range(1, 3);
                 fight.Attack = 0;
@@ -100,8 +89,6 @@ public class BattleScreen : Room
                 fight.Name = "Vogon Cruiser";
                 fight.Health = 15;
                 fight.Engine = 2;
-                /*fight.Lazerdam = Random.Range(4, 8);
-				fight.Acc = 80;*/
                 fight.Metal = Random.Range(8, 13);
                 fight.Fish = Random.Range(2, 5);
                 fight.Attack = 1;
@@ -110,8 +97,6 @@ public class BattleScreen : Room
                 fight.Name = "Vogon Battleship";
                 fight.Health = 20;
                 fight.Engine = 2;
-                /*fight.Lazerdam = Random.Range(5, 9);
-				fight.Acc = 85;*/
                 fight.Metal = Random.Range(12, 19);
                 fight.Fish = Random.Range(4, 7);
                 fight.Attack = 2;
@@ -120,8 +105,6 @@ public class BattleScreen : Room
                 fight.Name = "Vogon Capital Ship";
                 fight.Health = 25;
                 fight.Engine = 3;
-                /*fight.Lazerdam = Random.Range(6, 12);
-				fight.Acc = 90;*/
                 fight.Metal = Random.Range(15, 26);
                 fight.Fish = Random.Range(5, 8);
                 fight.Attack = 3;
@@ -130,8 +113,6 @@ public class BattleScreen : Room
                 fight.Name = "Space Orca";
                 fight.Health = 100;
                 fight.Engine = 5;
-                /*fight.Lazerdam = 10;
-                fight.Acc = 60;*/
                 fight.Metal = 0;
                 fight.Fish = 90;
                 fight.Attack = 4;
@@ -158,6 +139,7 @@ public class BattleScreen : Room
         Choose("");
     }
 
+    //lasers selected
     void option1()
     {
         opt1 = true;
@@ -167,8 +149,10 @@ public class BattleScreen : Room
         Turn();
     }
 
+    //missles selected
     void option2()
     {
+        //check if any missles remain
         if (Cockpit.playerOne.missiles <= 0)
         {
             Say("Sorry sir, we're out of missiles");
@@ -181,8 +165,10 @@ public class BattleScreen : Room
         Turn();
     }
 
+    //dolphin cry selected
     void option3()
     {
+        // check if player already dolphin cried
         if (cry)
         {
             Say("we already did that. We already scrambled their systems, remember? It was like a few seconds ago.");
@@ -195,6 +181,7 @@ public class BattleScreen : Room
         Turn();
     }
 
+    //option to flee
     void option4()
     {
         opt1 = false;
@@ -204,7 +191,10 @@ public class BattleScreen : Room
         Turn();
     }
 
-
+    //check to see who acts during this turn
+    //check bool flags to see which action has been selected
+    //go to method of selected action
+    //go to enemy method
     void Turn()
     {
         end = false;
@@ -272,7 +262,10 @@ public class BattleScreen : Room
 
 
 
-
+    //method to calculate firing lasers
+    //roll to hit with lasers
+    //either miss or resolve damage
+    //determine if enemy is dead or not
     void lazers()
     {
         int shoot = Random.Range(0, 101);
@@ -298,6 +291,8 @@ public class BattleScreen : Room
         }
     }
 
+    //method for calculating missle damage
+    //resolve damage then check if enemy is dead or not
     void missles()
     {
         Say("You fired a missile!");
@@ -318,20 +313,19 @@ public class BattleScreen : Room
         }
     }
 
+    //method for resolving dolphin cry
+    //check bool flag cry to reduce enemy accuracy til the end of the battle
     void dolphin()
     {
         Say("You used the dolphin cry!");
-        //Say("DEV NOTE: for technical reasons, the dolphin cry is currently on holiday.");
         cry = true;
         Say("Their systems have been scrambled!");
-        //calculate accuracy damage
-        /*fight.Acc = fight.Acc - 30;
-        if (fight.Acc <= 0)
-        {
-            fight.Acc = 1;
-        }*/
+        
     }
 
+    //method for resolving attempting to run away
+    //roll to run
+    //either end or continue battle
     void run()
     {
         Say("You attempt to run away!");
@@ -351,7 +345,11 @@ public class BattleScreen : Room
 
 
 
-
+    //method for the end of a battle
+    //resolve whether the player won, lost or flee
+    //if win, reward player and return
+    //if lost, bring to game over scree
+    //if flee, return to the cockpit screen
     void End()
     {
         cry = false;
@@ -405,28 +403,13 @@ public class BattleScreen : Room
         {
             Attack4();
         }
-        /*int shoot = Random.Range(0, 100);
-        Say("They attack!");
-        if (shoot < fight.Acc)
-        {
-            Say("They hit!");
-            Cockpit.playerOne.shields = Cockpit.playerOne.shields - fight.Lazerdam;
-
-			if (Cockpit.playerOne.shields <= 0){
-				lose = true;
-				End ();
-			}
-
-            Say("You are down to " + Cockpit.playerOne.shields + " shields");
-            //damage
-        }
-        else
-        {
-            Say("They missed!");
-        }*/
     }
 
+    //below are all the different types of enemies and the randomised actions they can take each turn.
+    //at the start of their turn, a number between 1 and 100 is generated to determine which atcion they take.
+
     //Mook Wing
+    //attack A: Hail of lazers
     void Attack0()
     {
         int Acc = 75;
@@ -457,6 +440,8 @@ public class BattleScreen : Room
     }
 
     //Cruiser
+    //attack A: Focused fire
+    //attack B
     void Attack1()
     {
         int choose = Random.Range(0, 101);
@@ -525,6 +510,9 @@ public class BattleScreen : Room
     }
 
     //Battleship
+    //Attack A: launch missle
+    //attack B: autocannons
+    //attack C: lasers
     void Attack2()
     {
         int choose = Random.Range(0, 101);
@@ -609,6 +597,11 @@ public class BattleScreen : Room
     }
 
     //Vogon Capital
+    //attack A: missle
+    //attack B: torpedoes
+    //attack C: lasers
+    //attack D: tractor beam
+    //attack E: self-repair
     void Attack3()
     {
         int choose = Random.Range(0, 101);
@@ -721,10 +714,14 @@ public class BattleScreen : Room
     }
 
     //spaceOrca
+    //attack A: attempt bite
+    //attack B: Orca roar
+    //attack C: laser
+    //attack D: swing tail
     void Attack4()
     {
         int choose = Random.Range(0, 101);
-        //possoble attack A
+        //possible attack A
         if (choose > 95)
         {
             int damage = 9999;
@@ -733,7 +730,7 @@ public class BattleScreen : Room
             Say("The Orca is attempting to bite the ship!");
             if (bite > escape)
             {
-                Say("The Orca's mouth closes around the hull of the ship!");
+                Say("The Orca's mouth closes around the hull of the ship, causing collosal damage!");
                 Cockpit.playerOne.shields = Cockpit.playerOne.shields - damage;
 
                 if (Cockpit.playerOne.shields <= 0)
