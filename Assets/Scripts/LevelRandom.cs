@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*Randomized level class. Main way to play the game
+ *ALL world events programmed by Eoin Meyler
+ *
+ *Author: Christopher Jerrard-Dunne
+ *Co-Author: Eoin Meyler
+ */
+
+
+using UnityEngine;
 using System.Collections;
 using Fungus;
 
@@ -14,6 +22,7 @@ public class LevelRandom{
 	
 	}
 
+	//Initializes the game world and starts a new random world
 	public void Initialise (Cockpit cockpit) {
 		this.cockpit = cockpit;
 		Events.Start (cockpit);
@@ -21,6 +30,7 @@ public class LevelRandom{
 		InitRandomWorld (0, 0);
 	}
 
+	//Creates a new random world and fills it with events. Does so recursively
 	void InitRandomWorld(int x, int y){
 		int random;
 
@@ -62,6 +72,7 @@ public class LevelRandom{
 		}
 	}
 
+	//Finalizes the world and 
 	void FinalizeWorld (){
 		int x, y;
 
@@ -87,6 +98,7 @@ public class LevelRandom{
 		Events.Leaving ();
 	}
 
+	//Tells the game what event to call based on what value is in the EventChart
 	public void checkEvent(int x, int y){
 	
 		switch(EventChart[x-1,y-1]){
@@ -139,16 +151,19 @@ public class LevelRandom{
 		cockpit.Say("You gaze ahead in abject horror as you realise that hovering menacingly in front of your ship is... " + "Absolutely nothing.");
 	}
 
+	//Variant of Empty()
 	public void EmptyTwo(){
 		cockpit.Say("As you warp in, you believe you see a blurry shape hurtling past the cockpit. It looked suspiciously like a flower pot.");
 		cockpit.Say("Other then a rogue flower pot, this area of space is completely empty.");
 	}
 
+	//Variant of Empty()
 	public void EmptyThree(){
 		cockpit.Say ("As you hit the warp button, your mind runs wild with the possibilities of what could be in this new location.");
 		cockpit.Say ("Unfortunately, your hopes are dashed as it appears completely barren other than some traces of space dust.");
 	}
 
+	//Variant of Empty()
 	public void EmptyFour(){
 		cockpit.Say ("As you warp in, your eyes are greeted by possibly the most horrific sight you've ever seen.");
 		cockpit.Say ("You've found a local tourist site. Unfortunately, like most tourist sites, there's very little to do here. Best to keep moving!");
@@ -180,6 +195,7 @@ public class LevelRandom{
 		Events.TradeMenu();
 	}
 
+	//Rare event that allows you to end the game.
 	public void Ending (){
 		cockpit.Say("Congratulations! You found the end of the level!");
 		cockpit.Say("Unfortunately, this is the end of the random demo.");

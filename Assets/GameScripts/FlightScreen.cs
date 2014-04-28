@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*Flight screen scripting that allows the player to travel
+ * 
+ * Author: Christopher Jerrard-Dunne
+ */
+
+using UnityEngine;
 using System.Collections;
 using Fungus;
 
@@ -31,6 +36,8 @@ public class FlightScreen : Room {
 	}
 
 	//Checks the position clicked by the mouse on the grid, then asks if the coordinates are right.
+	//Note: This is horribly hard coded. I tried to get raycasthits to work, but nothing I did got things to work right.
+	//This mostly did the job.
 	void CalculateFlight(){
 		Vector3 clickedPosition = Input.mousePosition;
 
@@ -117,11 +124,13 @@ public class FlightScreen : Room {
 	}
 	
 	// Use this for initialization
+	//Not used in script. Kept for compatibility purposes
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
+	//Not used in script. Kept for compatibility purposes
 	void Update () {
 		
 	}

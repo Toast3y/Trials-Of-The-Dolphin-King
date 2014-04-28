@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*Main class used to handle all interactions within the game.
+ *
+ *Author: Christopher Jerrard-Dunne 
+ */
+
+using UnityEngine;
 using System.Collections;
 using Fungus;
 
@@ -64,10 +69,12 @@ public class Cockpit : Room {
 			//Otherwise, if entering a coordinate, calls an event based on position and level.
 
 			if (randomLevels){
+				//Checks the random map flags chart instead of the main page
 				EventFlag = false;
 				levelRandom.checkEvent((int)playerOne.position.x, (int)playerOne.position.y);
 			}else if (!randomLevels){
 				if (playerOne.levelOne){
+					//Checks the static map events chart
 					EventFlag = false;
 					LevelOne.CallEvent((int)playerOne.position.x, (int)playerOne.position.y);
 					//Say ("You are at level 1");
@@ -133,7 +140,7 @@ public class Cockpit : Room {
 	}
 
 
-	//Moves the player through the universe
+	//Moves the player through the universe in game
 	void InFlight(){
 		startFlight = false;
 		stillFlying = true;

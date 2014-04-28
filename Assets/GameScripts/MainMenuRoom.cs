@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*Main menu code, allows the player to start the game, and initializes all needed variables to their start position
+ * 
+ * Author: Christopher Jerrard-Dunne
+ */
+
+using UnityEngine;
 using System.Collections;
 using Fungus;
 
@@ -31,6 +36,8 @@ public class MainMenuRoom : Room {
 		MoveToRoom(Cockpit);
 	}
 
+
+	//Creates a random map game, and does the same as above
 	void MoveToRandomGame(){
 		Cockpit.randomLevels = true;
 		Cockpit.playerOne.initialize ();

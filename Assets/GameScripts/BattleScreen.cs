@@ -441,7 +441,7 @@ public class BattleScreen : Room
 
     //Cruiser
     //attack A: Focused fire
-    //attack B
+    //attack B: Barrage fire
     void Attack1()
     {
         int choose = Random.Range(0, 101);
