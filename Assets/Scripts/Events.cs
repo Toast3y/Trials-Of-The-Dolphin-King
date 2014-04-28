@@ -1,5 +1,5 @@
 ﻿/*
- 
+ Eoin Meyler
  */
 
 using UnityEngine;
@@ -8,6 +8,7 @@ using Fungus;
 
 public class Events
 {
+	//Using ints 1 - 3 determines which resources are being traded
 	int TradeTo = 0;
 	int TradeFor = 0;
 	public int InValue;
@@ -37,8 +38,10 @@ public class Events
     public void TradeMenu()
     {
 		//Choose what to do
-        Cockpit.AddOption("Buy Goods", Bartering1);
-        Cockpit.AddOption("Leave", Leaving);
+        Cockpit.AddOption("Buy Goods", Bartering1);	//Calls first section of barter system
+													//Fungus doesn't allow for variables to be passed into called functions
+													//so an unfortunately verbose workaround was used
+        Cockpit.AddOption("Leave", Leaving);	//Ends events
         Cockpit.Choose("Welcome! Here to trade?");
     }
 
@@ -54,21 +57,21 @@ public class Events
 	//Sets variables to determine what is being traded then moves to next stage
     void Opt1()
     {
-		//Fish
+		//Sets resource to trade with to Fish
         TradeTo = 1;
         Bartering2();
     }
 
     void Opt2()
     {
-		//Metal
+		//Sets resource to trade with to Metal
         TradeTo = 2;
         Bartering2();
     }
 
     void Opt3()
     {
-		//Rock
+		//Sets resource to trade with to Rock
         TradeTo = 3;
         Bartering2();
     }
@@ -97,24 +100,28 @@ public class Events
 	//Sets variables to determine what is being traded for
     void Option1()
     {
+		//Sets resource to buy to Fish
         TradeFor = 1;
         Bartering3();
     }
 
     void Option2()
     {
+		//Sets resource to buy to Metal
         TradeFor = 2;
         Bartering3();
     }
 
     void Option3()
     {
+		//Sets resource to buy to Rock Candy
         TradeFor = 3;
         Bartering3();
     }
 
     void Option4()
     {
+		//Sets resource to buy to Fuel
         TradeFor = 4;
         Bartering3();
     }
@@ -146,6 +153,7 @@ public class Events
 	//Now with 20% more feedback!
 	public bool DoTrade(int Amount)
 	{
+		//Take in value and edit it based on user input and options
 		bool OK = false;
 		if (TradeTo == 1 && TradeFor == 2)
 		{
@@ -253,6 +261,7 @@ public class Events
 
     public void TradeUnitNum()
     {
+		//Determine how much of a unit to trade, 1 or 5
         Cockpit.AddOption("Trade One Unit", OneUnit);
         Cockpit.AddOption("Trade Five Units", FiveUnit);
         Cockpit.Choose("How many do you want to trade?");
@@ -294,7 +303,7 @@ public class Events
 
     public void MineRock()
     {
-        //I assumed we wanted a random amount of mined candy, will correct if wrong
+        //Mine the rock, get some candy
         int MinedCandy = Random.Range(1, 6);
         Cockpit.playerOne.rock = Cockpit.playerOne.rock + MinedCandy;
 		Cockpit.Say ("After hours of back-breaking labour, your crew has managed to extract " + MinedCandy + " chunks of Rock Candy");
@@ -312,14 +321,14 @@ public class Events
 
     public void Salvage()
     {
-        //Wasn't sure what else to do with derelict ships so I assumed that it's the source of found metal
+        //Search ship, get metal and maybe some fuel
         Random RandomMetal = new Random();
         int SalvagedMetal = Random.Range(2, 7);
         Cockpit.playerOne.metal = Cockpit.playerOne.metal + SalvagedMetal;
 		Cockpit.Say ("You managed to find " + SalvagedMetal + " pieces of Scrap Metal");
 
         //Added a little extra just to be nice
-        if (Random.Range(1, 11) >= 4)
+        if (Random.Range(1, 11) >= 6)
         {
             Cockpit.playerOne.fuel++;
 			Cockpit.Say("You also salvaged one Galactic Standard Unit of generic Starship Fuel");

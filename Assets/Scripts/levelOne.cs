@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+Eoin Meyler
+**ADD YOUR OWN NAMES FELLAS TOO
+*/
+
+using UnityEngine;
 using System.Collections;
 using Fungus;
 
